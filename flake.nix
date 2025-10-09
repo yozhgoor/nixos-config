@@ -28,7 +28,7 @@
         shared = {
           hostname = "sanctuary";
           system = "x86_64-linux";
-          username = "yozhgoor";
+          username = "<hostname>";
         };
       in nixpkgs.lib.nixosSystem {
         system = shared.system;
@@ -41,40 +41,6 @@
           inputs.nixvim.nixosModules.nixvim
           inputs.nur.modules.nixos.default
 	      ];
-      };
-      "discovery" = let
-        shared = {
-          hostname = "discovery";
-          system = "x86-64-linux";
-          username = "yozhgoor";
-        };
-      in nixpkgs.lib.nixosSystem {
-        system = shared.system;
-        specialArgs = { inherit shared; };
-        modules = [
-          ./configuration/discovery
-
-          inputs.home-manager.nixosModules.home-manager
-          inputs.nixvim.nixosModules.nixvim
-          inputs.nur.modules.nixos.default
-        ];
-      };
-      "nostromo" = let
-        shared = {
-          hostname = "nostromo";
-          system = "aarch64-linux";
-          username = "guest";
-        };
-      in nixpkgs.lib.nixosSystem {
-        system = shared.system;
-        specialArgs = { inherit shared; };
-        modules = [
-          ./configuration/nostromo
-
-          inputs.home-manager.nixosModules.home-manager
-          inputs.nixvim.nixosModules.nixvim
-          inputs.nixos-hardware.nixosModules.raspberry-pi-4
-        ];
       };
     };
   };
