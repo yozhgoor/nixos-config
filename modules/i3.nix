@@ -124,7 +124,7 @@
 
         startup = [
           {
-            command = "feh --bg-fill ${./image/background-image.png}";
+            command = "feh --bg-fill path/to/background";
             always = true;
             notification = false;
           }
