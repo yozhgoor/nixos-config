@@ -10,9 +10,7 @@ This setup use [Flakes][flakes] so the "entrypoint" is [`flake.nix`][flake_path]
 
 The [`configuration`][configuration] directory contains configuration specific to the hosts.
 
-- Configuration specific [nostromo][nostromo]: [`configuration/nostromo`][nostromo_path]
 - Configuration specific to [sanctuary][sanctuary]: [`configuration/sanctuary`][sanctuary_path]
-- Configuration specific to [discovery][discovery]: [`configuration/discovery`][discovery_path]
 - Default configuration: [`configuration/default.nix`][default_path]
 
 ### Modules
@@ -28,8 +26,6 @@ The [`modules`][modules] directory is related to the programs or services option
 - Module related to [mangohud][mangohud]: [`modules/mangohud.nix`][mangohud_path]
 - Module related to [markdown][markdown]: [`modules/markdown.nix`][markdown_path]
 - Module related to [neovim][neovim]: [`modules/neovim`][neovim_path]
-- Module related to [openrgb][openrgb]: [`modules/openrgb.nix`][openrgb_path]
-- Module related to [rust][rust]: [`modules/rust.nix`][rust_path]
 - Module related to [sway][sway]: [`modules/sway`][sway_path]
 
 ## Usage
@@ -90,12 +86,8 @@ nix-store --optimise
 [flakes]: https://nixos.wiki/wiki/flakes
 [flake_path]: https://github.com/yozhgoor/nixos/blob/main/flake.nix
 [configuration]: https://github.com/yozhgoor/nixos/blob/main/configuration
-[nostromo]: https://avp.fandom.com/wiki/USCSS_Nostromo
-[nostromo_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/nostromo
 [sanctuary]: https://marvel.fandom.com/wiki/Sanctuary_(Vehicle)
 [sanctuary_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/sanctuary
-[discovery]: https://memory-alpha.fandom.com/wiki/USS_Discovery
-[discovery_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/discovery
 [default_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/default.nix
 [modules]: https://github.com/yozhgoor/nixos/blob/main/modules
 [alacritty]: https://alacritty.org
@@ -116,9 +108,5 @@ nix-store --optimise
 [markdown_path]: https://github.com/yozhgoor/nixos/blob/main/modules/markdown.nix
 [neovim]: https://neovim.io
 [neovim_path]: https://github.com/yozhgoor/nixos/blob/main/modules/neovim
-[openrgb]: https://openrgb.org
-[openrgb_path]: https://github.com/yozhgoor/nixos/blob/main/modules/openrgb.nix
-[rust]: https://www.rust-lang.org/
-[rust_path]: https://github.com/yozhgoor/nixos/blob/main/modules/rust.nix
 [sway]: https://swaywm.org
 [sway_path]: https://github.com/yozhgoor/nixos/blob/main/modules/sway
