@@ -14,7 +14,6 @@
       };
 
       web-devicons.enable = true;
-      lz-n.enable = true;
       bufferline.enable = true;
 
       neo-tree = {

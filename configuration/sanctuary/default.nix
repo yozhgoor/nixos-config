@@ -7,9 +7,7 @@
 
     ../../modules/git.nix
     ../../modules/i3.nix
-    ../../modules/rust.nix
     ../../modules/markdown.nix
-    ../../modules/remote.nix
     ../../modules/firefox.nix
   ];
 
@@ -33,7 +31,7 @@
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-      START_CHARGE_THRESH_BAT0 = 40;
+      START_CHARGE_THRESH_BAT0 = 50;
       STOP_CHARGE_THRESH_BAT0 = 80;
 
       DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth wifi";

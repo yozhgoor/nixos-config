@@ -50,12 +50,12 @@
           "eDP-1" = {
             mode = "1920x1080@60hz";
             position = "1920 0";
-            bg = "${../image/background-image.png} fill";
+            bg = "path/to/background fill";
           };
           "DP-2" = {
             mode = "1920x1080@60hz";
             position = "0 0";
-            bg = "${../image/background-image.png} fill";
+            bg = " path/to/background fill";
           };
         };
         defaultWorkspace = "workspace number 1";
