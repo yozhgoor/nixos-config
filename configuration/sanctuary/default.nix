@@ -7,9 +7,7 @@
 
     ../../modules/git.nix
     ../../modules/i3.nix
-    ../../modules/rust.nix
     ../../modules/markdown.nix
-    ../../modules/remote.nix
     ../../modules/firefox.nix
   ];
 
