@@ -23,7 +23,7 @@
   fonts.packages = with pkgs; [
     liberation_ttf
     nerd-fonts.jetbrains-mono
-    openmoji-color
+    nerd-fonts.symbols
   ];
 
   services.openssh.enable = true;
