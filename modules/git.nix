@@ -9,8 +9,8 @@
 
     programs.git = {
       enable = true;
-      userName = "yozhgoor";
-      userEmail = "yozhgoor@outlook.com";
+      userName = "${shared.username}";
+      userEmail = "<email>";
       extraConfig = {
         core = {
           editor = "nvim";

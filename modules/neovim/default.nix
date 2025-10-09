@@ -82,30 +82,6 @@
           noremap = true;
         };
       }
-      {
-        key = "Q";
-        action = "<Nop>";
-        options = {
-          silent = true;
-          noremap = true;
-        };
-      }
-      {
-        key = "<PageUp>";
-        action = "<Nop>";
-        options = {
-          silent = true;
-          noremap = true;
-        };
-      }
-      {
-        key = "<PageDown>";
-        action = "<Nop>";
-        options = {
-          silent = true;
-          noremap = true;
-        };
-      }
     ];
 
     autoCmd = [

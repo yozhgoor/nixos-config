@@ -12,7 +12,6 @@
 
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
-      xsel
       xorg.xrdb
       feh
       brightnessctl
@@ -129,11 +128,6 @@
             always = true;
             notification = false;
           }
-          {
-            command = "xset s off -dpms s noblank";
-            always = true;
-            notification = false;
-          }
         ];
       };
     };
@@ -208,39 +202,7 @@
         interval = 5;
       };
 
-      modules = if shared.hostname == "discovery" then {
-        "ethernet _first_" = {
-          position = 1;
-          settings = {
-            format_down = "E: down";
-            format_up = "E: %ip";
-          };
-        };
-        "disk /" = {
-          position = 2;
-          settings.format = "Disk %avail";
-        };
-        "cpu_usage" = {
-          position = 3;
-          settings.format = "CPU %usage";
-        };
-        "load" = {
-          position = 4;
-          settings.format = "Load %1min";
-        };
-        "memory" = {
-          position = 5;
-          settings = {
-            format = "MEM %used | %available";
-            format_degraded = "MEMORY < %available";
-            threshold_degraded = "1G";
-          };
-        };
-        "time" = {
-          position = 6;
-          settings.format = "%d-%m-%Y %H:%M";
-        };
-      } else {
+      modules = {
         "wireless _first_" = {
           position = 1;
           settings = {
