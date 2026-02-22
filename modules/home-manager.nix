@@ -1,16 +1,15 @@
-# Home-manager configuration
-{ inputs, config, pkgs, shared, ... }:
+{ inputs, config, pkgs, username, ... }:
 
 {
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
 
-  home-manager.users.${shared.username} = {
-    home.username = "${shared.username}";
-    home.homeDirectory = "/home/${shared.username}";
+    home-manager.users.${username} = {
+        home.username = "${username}";
+        home.homeDirectory = "/home/${username}";
 
-    programs.home-manager.enable = true;
+        programs.home-manager.enable = true;
 
-    home.stateVersion = "24.11";
-  };
+        home.stateVersion = "25.11"; # Never change this value after first installation.
+    };
 }

@@ -1,47 +1,53 @@
-{ config, lib, pkgs, shared, ... }:
+{ config, lib, pkgs, username, hostname, ... }:
 
 {
-  imports = [
-    ../modules/home-manager.nix
+    imports = [
+        ../modules/neovim
+        ../modules/home-manager.nix
+    ];
 
-    ../modules/bash.nix
-    ../modules/neovim
-  ];
+    boot.loader = {
+        systemd-boot.enable = true;
+        grub.enable = false;
+        efi.canTouchEfiVariables = true;
+    };
+    boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  users.users.${shared.username} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
-  };
+    users.users.${username} = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "video" "networkmanager" ];
+    };
 
-  networking.hostName = "${shared.hostname}";
-  networking.firewall.enable = true;
-  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    networking.networkmanager.enable = true;
+    networking.hostName = "${hostname}";
+    networking.firewall.enable = true;
+    networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Europe/Brussels";
+    i18n.defaultLocale = "en_US.UTF-8";
+    time.timeZone = "Europe/Brussels";
 
-  fonts.packages = with pkgs; [
-    liberation_ttf
-    nerd-fonts.jetbrains-mono
-    # nerd-fonts.symbols
-  ];
+    fonts.packages = with pkgs; [
+        liberation_ttf
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.symbols-only
+    ];
 
-  services.openssh.enable = true;
+    services.openssh.enable = true;
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+    security.rtkit.enable = true;
+    services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
+        jack.enable = true;
+    };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
 
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = false;
-  };
+    system.autoUpgrade = {
+        enable = true;
+        allowReboot = false;
+    };
 }
