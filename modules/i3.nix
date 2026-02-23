@@ -93,6 +93,13 @@
                     border = 0;
                     titlebar = false;
                 };
+                startup = [
+                    {
+                        command = "feh --bg-fill ${./img/background-image.png}";
+                        always = true;
+                        notification = false;
+                    }
+                ];
                 bars = [
                     {
                         position = "top";
