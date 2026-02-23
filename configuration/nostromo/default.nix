@@ -4,11 +4,6 @@
     imports = [
         ./hardware-configuration.nix
         ../default.nix
-
-        ../../modules/bash.nix
-        ../../modules/i3.nix
-        ../../modules/git.nix
-        ../../modules/firefox.nix
     ];
 
     hardware.bluetooth = {

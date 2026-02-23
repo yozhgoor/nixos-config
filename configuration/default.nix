@@ -2,8 +2,14 @@
 
 {
     imports = [
-        ../modules/neovim
         ../modules/home-manager.nix
+
+        ../modules/neovim
+        ../modules/bash.nix
+        ../modules/firefox.nix
+        ../modules/git.nix
+        ../modules/i3.nix
+        ../modules/rust.nix
     ];
 
     boot.loader = {

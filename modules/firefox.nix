@@ -83,6 +83,7 @@
                     "privacy.trackingprotection.socialtracking.enabled" = true;
                     "privacy.globalprivacycontrol.enabled" = true;
                     "privacy.resistFingerprinting" = true;
+                    "privacy.fingerprintingProtection" = true;
                     "dom.security.https_only_mode" = true;
                     "network.http.referer.XOriginPolicy" = 2;
                     "network.http.referer.XOriginTrimmingPolicy" = 2;
@@ -100,12 +101,12 @@
 
                     # Disable prefetching over network
                     "network.prefetch-next" = false;
-                    "network.dns.disablePrefetch" = false;
+                    "network.dns.disablePrefetch" = true;
                     "network.predictor.enabled" = false;
                     "network.predictor.enable-prefetch" = false;
 
                     # Clear on shutdown
-                    "privacy.sanitizeOnShutdown" = true;
+                    "privacy.sanitize.sanitizeOnShutdown" = true;
                     "privacy.clearOnShutdown_v2.formdata" = true;
                     "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = false;
 

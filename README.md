@@ -23,6 +23,7 @@ The [`modules`][modules] directory is related to the programs or services option
 - Module related to [home-manager][home-manager]: [`modules/home-manager.nix`][home-manager_path]
 - Module related to [i3][i3]: [`modules/i3.nix`][i3_path]
 - Module related to [neovim][neovim]: [`modules/neovim`][neovim_path]
+- Module related to [rust][rust]: [`modules/rust.nix`][rust_path]
 - Module related to [xorg][xorg]: [`modules/xorg.nix][xorg_path]
 
 ## Usage
@@ -92,5 +93,7 @@ nix-store --optimise
 [i3_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/i3.nix
 [neovim]: https://neovim.io
 [neovim_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/neovim
-[xorg]: https://www.x.org/wiki/
+[rust]: https://rust-lang.org
+[rust_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/rust.nix
+[xorg]: https://www.x.org/wiki
 [xorg_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/xorg.nix
