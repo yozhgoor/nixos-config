@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, username, ... }:
+{ inputs, config, lib, pkgs, username, ... }:
 
 {
     imports = [
@@ -30,6 +30,14 @@
         touchpad = {
             disableWhileTyping = true;
         };
+    };
+
+    home-manager.users.${username}.programs.git.settings = let
+        path = /etc/nixos/secrets.nix;
+    in lib.optionalAttrs (
+        builtins.pathExists path
+    ) {
+        url = (import path).url;
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine

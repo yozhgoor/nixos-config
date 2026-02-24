@@ -76,18 +76,9 @@
                     "toolkit.telemetry.unifiedIsOptIn" = false;
                     "toolkit.telemetry.updatePing.enabled" = false;
 
-                    # Enforce privacy
-                    "browser.contentblocking.category" = "strict";
-                    "privacy.trackingprotection.enabled" = true;
-                    "privacy.trackingprotection.emailtracking.enabled" = true;
-                    "privacy.trackingprotection.socialtracking.enabled" = true;
-                    "privacy.globalprivacycontrol.enabled" = true;
-                    "privacy.resistFingerprinting" = true;
-                    "privacy.fingerprintingProtection" = true;
+                    # Privacy
+                    "browser.contentblocking.category" = "standard";
                     "dom.security.https_only_mode" = true;
-                    "network.http.referer.XOriginPolicy" = 2;
-                    "network.http.referer.XOriginTrimmingPolicy" = 2;
-                    "network.http.referer.trimmingPolicy" = 1;
                     "places.history.enabled" = false;
 
                     # Disable auto-play
