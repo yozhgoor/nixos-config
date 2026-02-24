@@ -23,6 +23,23 @@
         extraGroups = [ "wheel" "video" "networkmanager" ];
     };
 
+    home-manager.users.${username} = {
+        xdg.userDirs = let
+            base = "/home/${username}";
+        in {
+            enable = true;
+            createDirectories = true;
+            download = "${base}/downloads";
+            desktop = base;
+            documents = base;
+            music = base;
+            pictures = base;
+            publicShare = base;
+            templates = base;
+            videos = base;
+        };
+    };
+
     networking.hostName = "${hostname}";
     networking.networkmanager.enable = true;
     networking.firewall.enable = true;
