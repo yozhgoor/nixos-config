@@ -177,6 +177,57 @@
                     #nav-bar toolbarspring { display: none; }
                     #alltabs-button { display: none; }
                 '';
+
+                bookmarks = {
+                    force = true;
+                    settings = [
+                        {
+                            name = "toolbar";
+                            toolbar = true;
+                            bookmarks = [
+                                {
+                                    name = "GitHub";
+                                    bookmarks = [
+                                        {
+                                            name = "yozhgoor";
+                                            url = "https://github.com/yozhgoor";
+                                        }
+                                        {
+                                            name = "rustminded";
+                                            url = "https://github.com/rustminded";
+                                        }
+                                    ];
+                                }
+                                {
+                                    name = "Rust";
+                                    bookmarks = [
+                                        {
+                                            name = "the book";
+                                            url = "https://doc.rust-lang.org/book";
+                                        }
+                                        {
+                                            name = "the cargo book";
+                                            url = "https://doc.rust-lang.org/cargo";
+                                        }
+                                    ];
+                                }
+                                {
+                                    name = "Tools";
+                                    bookmarks = [
+                                        {
+                                            name = "deepl";
+                                            url = "https://www.deepl.com/en/translator";
+                                        }
+                                        {
+                                            name = "alternativeto";
+                                            url = "https://alternativeto.net";
+                                        }
+                                    ];
+                                }
+                            ];
+                        }
+                    ];
+                };
             };
         };
     };
