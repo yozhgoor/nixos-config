@@ -77,7 +77,7 @@
                     "toolkit.telemetry.updatePing.enabled" = false;
 
                     # Privacy
-                    "browser.contentblocking.category" = "standard";
+                    "privacy.globalprivacycontrol.enabled" = true;
                     "dom.security.https_only_mode" = true;
                     "places.history.enabled" = false;
 
@@ -134,10 +134,9 @@
                     "sidebar.visibility" = "hide-sidebar";
 
                     # Fonts
+                    "font.name.serif.x-western" = "Liberation Serif";
+                    "font.name.sans-serif.x-western" = "Liberation Sans";
                     "font.name.monospace.x-western" = "JetBrainsMono Nerd Font";
-                    "font.name.serif.x-western" = "JetBrainsMono Nerd Font";
-                    "font.name.sans-serif.x-western" = "JetBrainsMono Nerd Font";
-                    "font.size.variable.x-western" = 14;
 
                     # Set default download directory
                     "browser.download.dir" = "/home/${username}/downloads";
