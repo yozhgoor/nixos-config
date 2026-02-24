@@ -11,6 +11,7 @@ This setup use [Flakes][flakes] so the "entrypoint" is [`flake.nix`][flake_path]
 The [`configuration`][configuration] directory contains configuration specific to the hosts.
 
 - Configuration specific to [nostromo][nostromo]: [`configuration/nostromo`][nostromo_path]
+- Configuration specific to [sanctuary[sanctuary]: [`configuration/sanctuary`][sanctuary_path]
 - Default configuration: [`configuration/default.nix`][default_path]
 
 ### Modules
@@ -79,6 +80,8 @@ nix-store --optimise
 [configuration]: https://github.com/yozhgoor/nixos-config/blob/main/configuration
 [nostromo]: https://avp.fandom.com/wiki/USCSS_Nostromo
 [nostromo_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/nostromo
+[sanctuary]: https://marvelcinematicuniverse.fandom.com/wiki/Sanctuary_II
+[sanctuary_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/sanctuary
 [default_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/default.nix
 [modules]: https://github.com/yozhgoor/nixos-config/blob/main/modules
 [bash]: https://www.gnu.org/software/bash

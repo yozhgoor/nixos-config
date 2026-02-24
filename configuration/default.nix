@@ -14,7 +14,6 @@
 
     boot.loader = {
         systemd-boot.enable = true;
-        grub.enable = false;
         efi.canTouchEfiVariables = true;
     };
     boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -24,8 +23,8 @@
         extraGroups = [ "wheel" "video" "networkmanager" ];
     };
 
-    networking.networkmanager.enable = true;
     networking.hostName = "${hostname}";
+    networking.networkmanager.enable = true;
     networking.firewall.enable = true;
     networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
@@ -48,7 +47,16 @@
         jack.enable = true;
     };
 
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+        gc.automatic = true;
+        settings = {
+            auto-optimise-store = true;
+            experimental-features = [
+                "nix-command"
+                "flakes"
+            ];
+        };
+    };
 
     nixpkgs.config.allowUnfree = true;
 

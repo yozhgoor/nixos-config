@@ -37,6 +37,21 @@
                     inputs.nur.modules.nixos.default
                 ];
             };
+            "sanctuary" = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                specialArgs = {
+                    inherit username;
+                    hostname = "sanctuary";
+                };
+                modules = [
+                    ./configuration/sanctuary
+
+                    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
+                    inputs.home-manager.nixosModules.home-manager
+                    inputs.nixvim.nixosModules.nixvim
+                    inputs.nur.modules.nixos.default
+                ];
+            };
         };
     };
 }
