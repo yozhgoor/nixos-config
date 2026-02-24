@@ -101,6 +101,9 @@
                     "privacy.clearOnShutdown_v2.formdata" = true;
                     "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = false;
 
+                    # Keep cookies
+                    "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+
                     # Disable Normandy app
                     "app.normandy.enabled" = false;
 

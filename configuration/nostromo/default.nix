@@ -6,11 +6,6 @@
         ../default.nix
     ];
 
-    hardware.bluetooth = {
-        enable = true;
-        powerOnBoot = false;
-    };
-
     services.tlp = {
         enable = true;
         settings = {
