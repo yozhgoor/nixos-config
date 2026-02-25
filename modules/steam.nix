@@ -7,6 +7,19 @@
             mangohud
         ];
 
+        home.file.".local/bin/120hz" = {
+            executable = true;
+            text = ''
+                #!/bin/sh
+
+                ${pkgs.xrandr}/bin/xrandr --output DP-2 --mode 1920x1080 --refresh 120.0
+
+                "$@"
+
+                ${pkgs.xrandr}/bin/xrandr --output DP-2 --mode 1920x1080 --refresh 60.0
+            '';
+        };
+
         home.file.".config/MangoHud/MangoHud.conf".text = ''
             legacy_layout=0
             horizontal
