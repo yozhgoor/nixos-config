@@ -26,6 +26,7 @@ The [`modules`][modules] directory is related to the programs or services option
 - Module related to [i3][i3]: [`modules/i3.nix`][i3_path]
 - Module related to [neovim][neovim]: [`modules/neovim`][neovim_path]
 - Module related to [rust][rust]: [`modules/rust.nix`][rust_path]
+- Module related to [steam][steam]: [`modules/steam.nix`][steam_path]
 - Module related to [xorg][xorg]: [`modules/xorg.nix][xorg_path]
 
 ## Usage
@@ -101,5 +102,7 @@ nix-store --optimise
 [neovim_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/neovim
 [rust]: https://rust-lang.org
 [rust_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/rust.nix
+[steam]: https://store.steampowered.com
+[steam_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/steam.nix
 [xorg]: https://www.x.org/wiki
 [xorg_path]: https://github.com/yozhgoor/nixos-config/blob/main/modules/xorg.nix
