@@ -11,7 +11,8 @@ This setup use [Flakes][flakes] so the "entrypoint" is [`flake.nix`][flake_path]
 The [`configuration`][configuration] directory contains configuration specific to the hosts.
 
 - Configuration specific to [nostromo][nostromo]: [`configuration/nostromo`][nostromo_path]
-- Configuration specific to [sanctuary[sanctuary]: [`configuration/sanctuary`][sanctuary_path]
+- Configuration specific to [sanctuary][sanctuary]: [`configuration/sanctuary`][sanctuary_path]
+- Configuration specific to [atlantis][atlantis]: [`configuration/atlantis`][atlantis_path]
 - Default configuration: [`configuration/default.nix`][default_path]
 
 ### Modules
@@ -82,6 +83,8 @@ nix-store --optimise
 [nostromo_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/nostromo
 [sanctuary]: https://marvelcinematicuniverse.fandom.com/wiki/Sanctuary_II
 [sanctuary_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/sanctuary
+[atlantis]: https://memory-alpha.fandom.com/wiki/Atlantis_(starship)
+[atlantis_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/atlantis
 [default_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/default.nix
 [modules]: https://github.com/yozhgoor/nixos-config/blob/main/modules
 [bash]: https://www.gnu.org/software/bash

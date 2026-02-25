@@ -52,6 +52,20 @@
                     inputs.nur.modules.nixos.default
                 ];
             };
+            "atlantis" = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                specialArgs = {
+                    inherit username;
+                    hostname = "atlantis";
+                };
+                modules = [
+                    ./configuration/atlantis
+
+                    inputs.home-manager.nixosModules.home-manager
+                    inputs.nixvim.nixosModules.nixvim
+                    inputs.nur.modules.nixos.default
+                ];
+            };
         };
     };
 }
