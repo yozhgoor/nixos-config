@@ -23,7 +23,7 @@
             frametime=0
         '';
 
-        home.file."config/MangoHud/presets.conf".text = ''
+        home.file.".config/MangoHud/presets.conf".text = ''
             [preset 1]
             fps_only
             font_size=16
