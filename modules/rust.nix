@@ -5,7 +5,6 @@
         home.packages = with pkgs; [
             rustup
             gcc
-            pkg-config
 
             cargo-release
         ];
