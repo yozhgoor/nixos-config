@@ -11,7 +11,7 @@
                 };
                 core = {
                     editor = "nvim";
-                    excludesFiles = "~/.gitignore_global";
+                    excludesFile = "~/.gitignore_global";
                 };
                 push.autoSetupRemote = true;
                 pull = {
@@ -30,6 +30,9 @@
             debug/
             target/
             **/*.rs.bk
+
+            .envrc
+            .direnv
         '';
     };
 }

@@ -139,7 +139,7 @@
                     __raw = ''
                         function()
                             vim.cmd("highlight Invalid ctermbg=red guibg=red")
-                            vim.fn.matchadd("Invalid", [[\s*\t\s*\|\s*\t\s*\|\s\+$\[^\x00-\xff]\+]])
+                            vim.fn.matchadd("Invalid", [[\s*\t\s*\|\s\+$\|[^\x00-\xff]\+]])
                         end
                     '';
                 };

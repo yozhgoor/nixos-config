@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, hostname, ... }:
+{ config, lib, pkgs, username, userFonts, hostname, ... }:
 
 {
     imports = [
@@ -48,10 +48,10 @@
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Europe/Brussels";
 
-    fonts.packages = with pkgs; [
-        liberation_ttf
-        nerd-fonts.jetbrains-mono
-        nerd-fonts.symbols-only
+    fonts.packages = [
+        userFonts.main.package
+        userFonts.nerd.package
+        userFonts.symbols.package
     ];
 
     services.openssh.enable = true;

@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, username, ... }:
+{ inputs, config, pkgs, username, userFonts, ... }:
 
 {
     home-manager.users.${username} = {
@@ -11,6 +11,7 @@
                 extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
                     darkreader
                     proton-pass
+                    ublock-origin
                 ];
 
                 search = {
@@ -137,9 +138,9 @@
                     "sidebar.visibility" = "hide-sidebar";
 
                     # Fonts
-                    "font.name.serif.x-western" = "Liberation Serif";
-                    "font.name.sans-serif.x-western" = "Liberation Sans";
-                    "font.name.monospace.x-western" = "JetBrainsMono Nerd Font";
+                    "font.name.serif.x-western" = "${userFonts.main.serif}";
+                    "font.name.sans-serif.x-western" = "${userFonts.main.sans}";
+                    "font.name.monospace.x-western" = "${userFonts.nerd.name}";
 
                     # Set default download directory
                     "browser.download.dir" = "/home/${username}/downloads";

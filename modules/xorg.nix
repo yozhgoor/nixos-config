@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, fonts, ... }:
+{ config, lib, pkgs, username, userFonts, colors, ... }:
 
 {
     services.xserver = {
@@ -13,43 +13,27 @@
         ];
 
         home.file.".Xresources".text = ''
-            *background: #101010
-            *foreground: #ebdbb2
+            *background: #${colors.background}
+            *foreground: #${colors.foreground}
 
-            ! Black
-            *color0: #282828
-            ! Red
-            *color1: #cc241d
-            ! Green
-            *color2: #98971a
-            ! Yellow
-            *color3: #d79921
-            ! Blue
-            *color4: #458588
-            ! Magenta
-            *color5: #b16286
-            ! Cyan
-            *color6: #689d6a
-            ! Light Grey
-            *color7: #a89984
-            ! Grey
-            *color8: #928374
-            ! Light Red
-            *color9: #fb4934
-            ! Light Green
-            *color10: #b8bb26
-            ! Light Yellow
-            *color11: #fabd2f
-            ! Light Blue
-            *color12: #83a598
-            ! Light Magenta
-            *color13: #d3869b
-            ! Light Cyan
-            *color14: #8ec07c
-            ! White
-            *color15: #ebdbb2
+            *color0: #${colors.black}
+            *color1: #${colors.red}
+            *color2: #${colors.green}
+            *color3: #${colors.yellow}
+            *color4: #${colors.blue}
+            *color5: #${colors.magenta}
+            *color6: #${colors.cyan}
+            *color7: #${colors.white}
+            *color8: #${colors.brightBlack}
+            *color9: #${colors.brightRed}
+            *color10: #${colors.brightGreen}
+            *color11: #${colors.brightYellow}
+            *color12: #${colors.brightBlue}
+            *color13: #${colors.brightMagenta}
+            *color14: #${colors.brightCyan}
+            *color15: #${colors.brightWhite}
 
-            xterm*faceName: JetBrains Mono Nerd Font
+            xterm*faceName: ${userFonts.nerd.name}
             xterm*faceSize: 10
 
             xterm*internalBorder: 0

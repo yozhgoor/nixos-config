@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, ... }:
+{ config, lib, pkgs, username, term, colors, ... }:
 
 {
     home-manager.users.${username} = {
@@ -11,9 +11,8 @@
             enable = true;
             shellAliases = {
                 ls = "ls --color=auto";
-                grep = "rg";
-                cat = "bat --decorations never --theme gruvbox-dark";
-                term = "$(ps -o comm= -p $PPID) & disown";
+                cat = "${pkgs.bat}/bin/bat --decorations never --theme gruvbox-dark";
+                term = "${term.package}/bin/${term.name} & disown";
             };
         };
 
@@ -22,12 +21,17 @@
             settings = {
                 add_newline = false;
                 character = {
-                    format = "[](bold #00FF00) ";
-                    success_symbol = "[](bold green) ";
-                    error_symbol = "[](bold red) ";
+                    format = "[](bold #${colors.green}) ";
+                    success_symbol = "[](bold #${colors.green}) ";
+                    error_symbol = "[](bold #${colors.red}) ";
                 };
                 package.disabled = true;
             };
+        };
+
+        programs.direnv = {
+            enable = true;
+            nix-direnv.enable = true;
         };
     };
 }
