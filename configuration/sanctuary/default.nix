@@ -32,12 +32,19 @@
         };
     };
 
-    home-manager.users.${username}.programs.git.settings = let
-        path = /etc/nixos/secrets.nix;
-    in lib.optionalAttrs (
-        builtins.pathExists path
-    ) {
-        url = (import path).url;
+    home-manager.users.${username} = {
+        home.packages = with pkgs; [
+            spotify
+            telegram-desktop
+        ];
+
+        programs.git.settings = let
+            path = /etc/nixos/secrets.nix;
+        in lib.optionalAttrs (
+            builtins.pathExists path
+        ) {
+            url = (import path).url;
+        };
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine
