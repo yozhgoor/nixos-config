@@ -49,17 +49,10 @@
                 pskRaw = "ext:yoz_psk";
                 priority = 10;
             };
-            Ilfaitbeau = {
-                pskRaw = "ext:ilfaitbeau_psk";
-                priority = 5;
-            };
         };
     };
     networking.useDHCP = true;
-    networking.firewall.enable = true;
-    networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-    i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Europe/Brussels";
 
     fonts.packages = [

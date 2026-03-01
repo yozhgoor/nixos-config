@@ -6,6 +6,10 @@
         ../default.nix
     ];
 
+    networking.wireless.networks = {
+        Ilfaitbeau.pskRaw = "ext:ilfaitbeau_psk";
+    };
+
     services.tlp = {
         enable = true;
         settings = {
