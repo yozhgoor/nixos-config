@@ -20,7 +20,7 @@
 
     users.users.${username} = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "video" "networkmanager" ];
+        extraGroups = [ "wheel" "video" ];
     };
 
     home-manager.users.${username} = {
@@ -41,7 +41,21 @@
     };
 
     networking.hostName = "${hostname}";
-    networking.networkmanager.enable = true;
+    networking.wireless = {
+        enable = true;
+        secretsFile = "/etc/wpa_supplicant/networks.conf";
+        networks = {
+            yoz = {
+                pskRaw = "ext:yoz_psk";
+                priority = 10;
+            };
+            Ilfaitbeau = {
+                pskRaw = "ext:ilfaitbeau_psk";
+                priority = 5;
+            };
+        };
+    };
+    networking.useDHCP = true;
     networking.firewall.enable = true;
     networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
