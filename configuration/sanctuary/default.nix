@@ -13,6 +13,7 @@
 
     networking.wireless.networks = {
         Ilfaitbeau.pskRaw = "ext:ilfaitbeau_psk";
+        "WiFi-5.0-FC57".pskRaw = "ext:fc57_psk";
     };
 
     services.tlp = {

@@ -15,6 +15,13 @@
         enable32Bit = true;
     };
 
+    services.libinput.enable = true;
+
+    networking.wireless.networks = {
+        Ilfaitbeau.pskRaw = "ext:ilfaitbeau_psk";
+        "WiFi-5.0-FC57".pskRaw = "ext:fc57_psk";
+    };
+
     # This option defines the first version of NixOS you have installed on this particular machine
     # and is used to maintain compatibility with application data (e.g. databases) created on older
     # NixOS version.
