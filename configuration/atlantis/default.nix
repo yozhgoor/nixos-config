@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, lib, pkgs, username, ... }:
 
 {
     imports = [
@@ -20,6 +20,21 @@
     networking.wireless.networks = {
         Ilfaitbeau.pskRaw = "ext:ilfaitbeau_psk";
         "WiFi-5.0-FC57".pskRaw = "ext:fc57_psk";
+    };
+
+    home-manager.users.${username} = {
+        home.packages = with pkgs; [
+            spotify
+            telegram-desktop
+        ];
+
+        programs.git.settings = let
+            path = /etc/nixos/secrets.nix;
+        in lib.optionalAttrs (
+            builtins.pathExists path
+        ) {
+            url = (import path).url;
+        };
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine
