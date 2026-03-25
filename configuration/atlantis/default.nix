@@ -22,10 +22,6 @@
             spotify
             telegram-desktop
         ];
-
-        imports = let
-            path = /etc/nixos/secrets.nix;
-        in lib.optional (builtins.pathExists path) path;
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine

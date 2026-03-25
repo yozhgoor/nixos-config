@@ -28,10 +28,5 @@
                 package.disabled = true;
             };
         };
-
-        programs.direnv = {
-            enable = true;
-            nix-direnv.enable = true;
-        };
     };
 }

@@ -13,5 +13,10 @@
             [net]
             git-fetch-with-cli = true
         '';
+
+        programs.direnv = {
+            enable = true;
+            nix-direnv.enable = true;
+        };
     };
 }

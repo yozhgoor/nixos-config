@@ -14,7 +14,6 @@
         ../modules/firefox.nix
         ../modules/git.nix
         ../modules/i3.nix
-        ../modules/rust.nix
     ];
 
     networking.hostName = "${hostname}";
