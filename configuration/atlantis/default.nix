@@ -28,13 +28,9 @@
             telegram-desktop
         ];
 
-        programs.git.settings = let
+        imports = let
             path = /etc/nixos/secrets.nix;
-        in lib.optionalAttrs (
-            builtins.pathExists path
-        ) {
-            url = (import path).url;
-        };
+        in lib.optional (builtins.pathExists path) path;
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine
