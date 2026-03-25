@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, userFonts, colors, ... }:
+{ pkgs, colors, username, userFonts, ... }:
 
 {
     services.xserver = {

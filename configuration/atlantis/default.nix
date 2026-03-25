@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, username, ... }:
+{ lib, pkgs, username, ... }:
 
 {
     imports = [
@@ -16,11 +16,6 @@
     };
 
     services.libinput.enable = true;
-
-    networking.wireless.networks = {
-        Ilfaitbeau.pskRaw = "ext:ilfaitbeau_psk";
-        "WiFi-5.0-FC57".pskRaw = "ext:fc57_psk";
-    };
 
     home-manager.users.${username} = {
         home.packages = with pkgs; [

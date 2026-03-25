@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, userFonts, colors, term, ... }:
+{ pkgs, colors, term, userFonts, username, ... }:
 
 {
     imports = [

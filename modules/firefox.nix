@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, username, userFonts, ... }:
+{ pkgs, userFonts, username, ... }:
 
 {
     home-manager.users.${username} = {

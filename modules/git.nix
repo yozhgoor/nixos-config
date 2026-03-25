@@ -1,6 +1,8 @@
-{ config, lib, pkgs, username, ... }:
+{ username, ... }:
 
 {
+    services.openssh.enable = true;
+
     home-manager.users.${username} = {
         programs.git = {
             enable = true;

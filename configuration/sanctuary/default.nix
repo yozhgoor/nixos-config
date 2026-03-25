@@ -1,19 +1,16 @@
-{ inputs, config, lib, pkgs, username, ... }:
+{ lib, pkgs, username, ... }:
 
 {
     imports = [
         ./hardware-configuration.nix
         ../default.nix
+
+        ../../modules/wireless.nix
     ];
 
     hardware.bluetooth = {
         enable = true;
         powerOnBoot = false;
-    };
-
-    networking.wireless.networks = {
-        Ilfaitbeau.pskRaw = "ext:ilfaitbeau_psk";
-        "WiFi-5.0-FC57".pskRaw = "ext:fc57_psk";
     };
 
     services.tlp = {

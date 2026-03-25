@@ -1,14 +1,12 @@
-{ inputs, config, pkgs, ... }:
+{ ... }:
 
 {
     imports = [
         ./hardware-configuration.nix
         ../default.nix
-    ];
 
-    networking.wireless.networks = {
-        Ilfaitbeau.pskRaw = "ext:ilfaitbeau_psk";
-    };
+        ../../modules/wireless.nix
+    ];
 
     services.tlp = {
         enable = true;
