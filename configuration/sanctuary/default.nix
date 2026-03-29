@@ -1,4 +1,4 @@
-{ lib, pkgs, username, ... }:
+{ lib, username, ... }:
 
 {
     imports = [
@@ -36,11 +36,6 @@
     };
 
     home-manager.users.${username} = {
-        home.packages = with pkgs; [
-            spotify
-            telegram-desktop
-        ];
-
         imports = let
             path = /etc/nixos/secrets.nix;
         in lib.optional (builtins.pathExists path) path;

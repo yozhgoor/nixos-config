@@ -14,9 +14,6 @@
         ViAlias = true;
         vimAlias = true;
 
-        withPython3 = false;
-        withRuby = false;
-
         clipboard.register = "unnamedplus";
 
         globals.mapleader = ",";
