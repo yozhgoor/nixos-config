@@ -65,24 +65,6 @@
         };
     in {
         nixosConfigurations = {
-            "nostromo" = nixpkgs.lib.nixosSystem {
-                system = "x86_64-linux";
-                specialArgs = {
-                    userFonts = mkFonts nixpkgs.legacyPackages.x86_64-linux;
-                    term = mkTerm nixpkgs.legacyPackages.x86_64-linux;
-                    inherit username;
-                    inherit colors;
-                    hostname = "nostromo";
-                };
-                modules = [
-                    ./configuration/nostromo
-
-                    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x270
-                    inputs.home-manager.nixosModules.home-manager
-                    inputs.nixvim.nixosModules.nixvim
-                    inputs.nur.modules.nixos.default
-                ];
-            };
             "sanctuary" = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
                 specialArgs = {

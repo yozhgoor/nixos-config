@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./xorg.nix
+        ./default.nix
     ];
 
     services.xserver.windowManager.i3.enable = true;
@@ -101,7 +101,7 @@
                         notification = false;
                     }
                     {
-                        command = "${pkgs.feh}/bin/feh --bg-fill ${./img/background-image.png}";
+                        command = "${pkgs.feh}/bin/feh --bg-fill ${../img/background-image.png}";
                         always = true;
                         notification = false;
                     }

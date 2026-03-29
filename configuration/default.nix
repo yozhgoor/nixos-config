@@ -2,18 +2,17 @@
 
 {
     imports = [
-        ../modules/home-manager.nix
-
-        ../modules/audio.nix
-        ../modules/boot.nix
-        ../modules/fonts.nix
-        ../modules/user.nix
+        ../modules/base/audio.nix
+        ../modules/base/boot.nix
+        ../modules/base/fonts.nix
+        ../modules/base/home-manager.nix
+        ../modules/base/user.nix
 
         ../modules/neovim
         ../modules/bash.nix
         ../modules/firefox.nix
         ../modules/git.nix
-        ../modules/i3.nix
+        ../modules/xorg/i3.nix
     ];
 
     networking.hostName = "${hostname}";
