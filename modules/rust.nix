@@ -7,6 +7,9 @@
             gcc
 
             cargo-release
+            cargo-readme
+            cargo-msrv
+            cargo-audit
         ];
 
         home.file.".cargo/config.toml".text = ''
