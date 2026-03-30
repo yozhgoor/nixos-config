@@ -6,6 +6,7 @@
         ../modules/firefox.nix
         ../modules/git.nix
         ../modules/home-manager.nix
+        ../modules/spotify.nix
         ../modules/neovim
         ../modules/xorg/i3.nix
     ];
@@ -25,7 +26,6 @@
 
     home-manager.users.${username} = {
         home.packages = with pkgs; [
-            spotify
             telegram-desktop
         ];
 
