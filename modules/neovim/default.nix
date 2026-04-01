@@ -1,146 +1,144 @@
 { ... }:
 
 {
-    imports = [
-        ./plugins.nix
-    ];
+  imports = [
+    ./plugins.nix
+  ];
 
-    programs.nixvim = {
-        enable = true;
-        defaultEditor = true;
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
 
-        colorschemes.gruvbox.enable = true;
+    colorschemes.gruvbox.enable = true;
 
-        ViAlias = true;
-        vimAlias = true;
+    ViAlias = true;
+    vimAlias = true;
 
-        clipboard.register = "unnamedplus";
+    clipboard.register = "unnamedplus";
 
-        globals.mapleader = ",";
+    globals.mapleader = ",";
 
-        opts = {
-            lazyredraw = true;
-            updatetime = 100;
+    opts = {
+      lazyredraw = true;
+      updatetime = 100;
 
-            encoding = "utf-8";
-            autoread = true;
-            swapfile = false;
-            hidden = true;
+      encoding = "utf-8";
+      autoread = true;
+      swapfile = false;
+      hidden = true;
 
-            spell = true;
-            spelllang = "en_us";
+      spell = true;
+      spelllang = "en_us";
 
-            showmatch = true;
-            ignorecase = true;
-            smartcase = true;
-            hlsearch = true;
-            incsearch = true;
+      showmatch = true;
+      ignorecase = true;
+      smartcase = true;
+      hlsearch = true;
+      incsearch = true;
 
-            termguicolors = true;
-            signcolumn = "yes:1";
-            number = true;
-            cursorline = true;
-            colorcolumn = "100";
-            textwidth = 100;
+      termguicolors = true;
+      signcolumn = "yes:1";
+      number = true;
+      cursorline = true;
+      colorcolumn = "100";
+      textwidth = 100;
 
-            tabstop = 4;
-            softtabstop = 4;
-            shiftwidth = 4;
-            smartindent = true;
-            expandtab = true;
-            breakindent = true;
-        };
-
-        keymaps =
-            let
-                mkNoop = key: {
-                    inherit key;
-                    action = "<Nop>";
-                    options = {
-                        silent = true;
-                        noremap = true;
-                    };
-                    mode = [ "n" "v" "i" "c" "t" ];
-                };
-            in
-            [
-                (mkNoop "<PageUp>")
-                (mkNoop "<PageDown>")
-                (mkNoop "<MiddleMouse>")
-                (mkNoop "<2-MiddleMouse>")
-                (mkNoop "<3-MiddleMouse>")
-                (mkNoop "<4-MiddleMouse>")
-                {
-                    key = "<leader><Left>";
-                    action = ":bprev<CR>";
-                    options = {
-                        silent = true;
-                        noremap = true;
-                    };
-                }
-                {
-                    key = "<leader><Right>";
-                    action = ":bnext<CR>";
-                    options = {
-                        silent = true;
-                        noremap = true;
-                    };
-                }
-                {
-                    key = "<leader><Down>";
-                    action = ":bdel<CR>";
-                    options = {
-                        silent = true;
-                        noremap = true;
-                    };
-                }
-            ];
-
-        autoCmd = [
-            {
-                event = "BufWritePre";
-                pattern = "*";
-                command = "%s/\\s\\+$//e";
-            }
-            {
-                event = "FileType";
-                pattern = [ "javascript" "xml" "yaml" ];
-                callback = {
-                    __raw = ''
-                        function()
-                            vim.opt_local.colorcolumn = '80'
-                            vim.opt_local.textwidth = 80
-                            vim.opt_local.tabstop = 2
-                            vim.opt_local.softtabstop = 2
-                            vim.opt_local.shiftwidth = 2
-                        end
-                    '';
-                };
-            }
-            {
-                event = "FileType";
-                pattern = [ "xml" ];
-                callback = {
-                    __raw = ''
-                        function()
-                            vim.opt_local.wrap = true
-                            vim.opt_local.linebreak = true
-                        end
-                    '';
-                };
-            }
-            {
-                event = "FileType";
-                pattern = [ "markdown" "nix" "rust" "toml" "yaml" ];
-                callback = {
-                    __raw = ''
-                        function()
-                            vim.cmd("highlight Invalid ctermbg=red guibg=red")
-                            vim.fn.matchadd("Invalid", [[\s*\t\s*\|\s\+$\|[^\x00-\xff]\+]])
-                        end
-                    '';
-                };
-            }
-        ];
+      tabstop = 4;
+      softtabstop = 4;
+      shiftwidth = 4;
+      smartindent = true;
+      expandtab = true;
+      breakindent = true;
     };
+
+    keymaps =
+      let
+        mkNoop = key: {
+          inherit key;
+          action = "<Nop>";
+          options = {
+            silent = true;
+            noremap = true;
+          };
+          mode = [ "n" "v" "i" "c" "t" ];
+        };
+      in
+        [
+          (mkNoop "<PageUp>")
+          (mkNoop "<PageDown>")
+          (mkNoop "<MiddleMouse>")
+          (mkNoop "<2-MiddleMouse>")
+          (mkNoop "<3-MiddleMouse>")
+          (mkNoop "<4-MiddleMouse>")
+          {
+            key = "<leader><Left>";
+            action = ":bprev<CR>";
+            options = {
+              silent = true;
+              noremap = true;
+            };
+          }
+          {
+            key = "<leader><Right>";
+            action = ":bnext<CR>";
+            options = {
+              silent = true;
+              noremap = true;
+            };
+          }
+          {
+            key = "<leader><Down>";
+            action = ":bdel<CR>";
+            options = {
+              silent = true;
+              noremap = true;
+            };
+          }
+        ];
+
+    autoCmd = [
+      {
+        event = "BufWritePre";
+        pattern = "*";
+        command = "%s/\\s\\+$//e";
+      }
+      {
+        event = "FileType";
+        pattern = [ "javascript" "nix" "xml" "yaml"];
+        callback = {
+          __raw = ''
+            function()
+              vim.opt_local.tabstop = 2
+              vim.opt_local.softtabstop = 2
+              vim.opt_local.shiftwidth = 2
+            end
+          '';
+        };
+      }
+      {
+        event = "FileType";
+        pattern = [ "xml" ];
+          callback = {
+            __raw = ''
+              function()
+                vim.opt_local.wrap = true
+                vim.opt_local.linebreak = true
+              end
+            '';
+          };
+      }
+      {
+        event = "FileType";
+        pattern = [ "markdown" "rust" "toml" "yaml" ];
+        callback = {
+          __raw = ''
+            function()
+              vim.cmd("highlight Invalid ctermbg=red guibg=red")
+              vim.fn.matchadd("Invalid", [[\s*\t\s*\|\s\+$\|[^\x00-\xff]\+]])
+            end
+          '';
+        };
+      }
+    ];
+  };
 }
