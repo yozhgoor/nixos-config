@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../modules/audio.nix
     ../modules/bash.nix
     ../modules/firefox.nix
     ../modules/git.nix
@@ -11,11 +12,16 @@
     ../modules/xorg/i3.nix
   ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot ={
+    kernelPackages = pkgs.linuxPackages_zen;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
   };
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  services.fwupd.enable = true;
+  zramSwap.enable = true;
 
   networking.hostName = "${hostname}";
 
@@ -47,30 +53,25 @@
 
   time.timeZone = "Europe/Brussels";
 
-  security.rtkit.enable = true;
-  services.pipewire.enable = true;
-
   fonts.packages = [
     userFonts.main.package
     userFonts.nerd.package
     userFonts.symbols.package
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
     settings = {
       auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      experimental-features = [ "nix-command" "flakes" ];
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = false;
-  };
+  system.autoUpgrade.enable = true;
 }

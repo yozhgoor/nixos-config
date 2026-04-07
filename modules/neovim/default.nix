@@ -19,35 +19,47 @@
     globals.mapleader = ",";
 
     opts = {
+      # Don't redraw while executing macros, registers and other commands that have not been typed.
       lazyredraw = true;
-      updatetime = 100;
 
-      encoding = "utf-8";
-      autoread = true;
+      # Use a swapfile for the local buffer.
       swapfile = false;
-      hidden = true;
 
+      # Enable spell checking.
       spell = true;
-      spelllang = "en_us";
 
+      # When a bracket is inserted, briefly jump to the matching one if it can be seen on screen.
       showmatch = true;
-      ignorecase = true;
-      smartcase = true;
-      hlsearch = true;
-      incsearch = true;
 
+      # Ignore case in search patterns.
+      ignorecase = true;
+      # Override the `ignorecase` option if the search pattern contains upper case characters.
+      smartcase = true;
+
+      # Enable 24-bit RGB color in the TUI.
       termguicolors = true;
+      # When and how to draw the signcolumn (always with a fixed space of 1).
       signcolumn = "yes:1";
+      # Print the line number in front of each line.
       number = true;
+      # Highlight the text line of the cursor
       cursorline = true;
+      # Highlight columns
       colorcolumn = "100";
+      # Maximum width of text that is being inserted.
       textwidth = 100;
 
+      # Define the column multiple used to display the horizontal Tab character.
       tabstop = 4;
+      # Create soft tab stops, separated by n number of columns.
       softtabstop = 4;
+      # Number of columns that make up one level of (auto)indentation.
       shiftwidth = 4;
+      # Do smart autoindenting when starting a new line.
       smartindent = true;
+      # Use the appropriate number of spaces to insert a <Tab>.
       expandtab = true;
+      # Every wrapped line will continue visually indented.
       breakindent = true;
     };
 

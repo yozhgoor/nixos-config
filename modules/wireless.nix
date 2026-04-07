@@ -13,5 +13,4 @@
       "WiFi-5.0-FC57".pskRaw = "ext:fc57_psk";
     };
   };
-  networking.useDHCP = true;
 }
