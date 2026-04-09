@@ -35,8 +35,8 @@
       };
     };
     mkTerm = pkgs: {
-      package = pkgs.xterm;
-      name = "xterm";
+      package = pkgs.alacritty;
+      name = "alacritty";
     };
     username = "yozhgoor";
     colors = {

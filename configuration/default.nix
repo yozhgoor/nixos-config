@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../modules/alacritty.nix
     ../modules/audio.nix
     ../modules/bash.nix
     ../modules/firefox.nix
