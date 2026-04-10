@@ -10,9 +10,10 @@
   };
 
   home-manager.users.${username} = {
-    home.packages = with pkgs; lib.optionals (term.name == "xterm") [
-      xrdb
+    home.packages = with pkgs; [
       xsel
+    ] ++ lib.optionals (term.name == "xterm") [
+      xrdb
     ];
 
     home.file = lib.mkIf (term.name == "xterm") {
