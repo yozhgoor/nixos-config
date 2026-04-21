@@ -195,6 +195,10 @@
                       name = "rustminded";
                       url = "https://github.com/rustminded";
                     }
+                    {
+                      name = "cecton";
+                      url = "https://github.com/cecton";
+                    }
                   ];
                 }
                 {
@@ -220,6 +224,10 @@
                     {
                       name = "alternativeto";
                       url = "https://alternativeto.net";
+                    }
+                    {
+                      name = "meme generator";
+                      url = "https://imgflip.com/memegenerator";
                     }
                   ];
                 }

@@ -8,7 +8,7 @@
       gcc
 
       cargo-release
-      cargo-readme
+      cargo-rdme
       cargo-msrv
       cargo-audit
     ];
