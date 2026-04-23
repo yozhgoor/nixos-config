@@ -7,6 +7,7 @@
 
     ../../modules/wireless.nix
     ../../modules/rust.nix
+    ../../modules/monitors.nix
   ];
 
   hardware.bluetooth = {
