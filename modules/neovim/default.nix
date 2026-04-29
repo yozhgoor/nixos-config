@@ -116,7 +116,7 @@
       }
       {
         event = "FileType";
-        pattern = [ "javascript" "nix" "xml" "yaml"];
+        pattern = [ "javascript" "nix" "xml" "yaml" "html" "json" ];
         callback = {
           __raw = ''
             function()

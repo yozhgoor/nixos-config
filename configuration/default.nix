@@ -34,6 +34,7 @@
   home-manager.users.${username} = {
     home.packages = with pkgs; [
       telegram-desktop
+      flameshot
     ];
 
     xdg.userDirs = let
