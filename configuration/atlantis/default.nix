@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../default.nix
 
+    ../../modules/xorg/i3.nix
     ../../modules/steam.nix
   ];
 

@@ -1,4 +1,4 @@
-{ lib, username, ... }:
+{ lib, pkgs, username, ... }:
 
 {
   imports = [
@@ -6,8 +6,9 @@
     ../default.nix
 
     ../../modules/wireless.nix
-    ../../modules/rust.nix
+    ../../modules/dev/rust.nix
     ../../modules/monitors.nix
+    ../../modules/wayland
   ];
 
   hardware.bluetooth = {
@@ -36,10 +37,21 @@
     };
   };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 8000 ];
+  };
+
   home-manager.users.${username} = {
     imports = let
       path = /etc/nixos/secrets.nix;
     in lib.optional (builtins.pathExists path) path;
+
+    home.packages = with pkgs; [
+      android-tools
+      inkscape
+      flameshot
+    ];
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine

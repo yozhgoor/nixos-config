@@ -6,11 +6,10 @@
     ../modules/audio.nix
     ../modules/bash.nix
     ../modules/firefox.nix
-    ../modules/git.nix
+    ../modules/dev/git.nix
     ../modules/home-manager.nix
     ../modules/spotify.nix
     ../modules/neovim
-    ../modules/xorg/i3.nix
   ];
 
   boot ={

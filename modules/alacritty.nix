@@ -11,7 +11,7 @@
             family = "${userFonts.nerd.name}";
             style = "Regular";
           };
-          size = 7.0;
+          size = 10.0;
         };
         colors = {
           primary = {
