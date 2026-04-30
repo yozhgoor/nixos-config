@@ -1,4 +1,4 @@
-{ pkgs, colors, term, username, ... }:
+{ colors, pkgs, term, username, ... }:
 
 {
   home-manager.users.${username} = {

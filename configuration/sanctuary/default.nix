@@ -37,9 +37,12 @@
     };
   };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 22 8000 ];
+  networking = {
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22 8000 ];
+    };
   };
 
   home-manager.users.${username} = {

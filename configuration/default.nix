@@ -1,4 +1,4 @@
-{ config, lib, pkgs, hostname, userFonts, username, ... }:
+{ config, hostname, lib, pkgs, userFonts, username, ... }:
 
 {
   imports = [
@@ -19,9 +19,6 @@
       efi.canTouchEfiVariables = true;
     };
   };
-
-  services.fwupd.enable = true;
-  zramSwap.enable = true;
 
   networking.hostName = "${hostname}";
 

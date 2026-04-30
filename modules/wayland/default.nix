@@ -1,4 +1,4 @@
-{ pkgs, colors, userFonts, username, ... }:
+{ colors, pkgs, userFonts, username, ... }:
 
 {
   security.polkit.enable = true;

@@ -1,11 +1,11 @@
-{ lib, ... }:
+{ ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../default.nix
 
-    ../../modules/xorg/i3.nix
+    ../../modules/xorg
     ../../modules/steam.nix
   ];
 

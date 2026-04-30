@@ -1,4 +1,4 @@
-{ pkgs, colors, term, userFonts, username, ... }:
+{ colors, pkgs, term, userFonts, username, ... }:
 
 {
   services.xserver.windowManager.i3.enable = true;
