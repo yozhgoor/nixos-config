@@ -1,12 +1,16 @@
 { colors, pkgs, userFonts, username, ... }:
 
 {
+  imports = [
+    ./waybar.nix
+  ];
+
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
 
   home-manager.users.${username} = {
     home.packages = with pkgs; [
-      bemenu
+      wmenu
       wl-clipboard
       grim
       slurp
@@ -24,7 +28,7 @@
       config = {
         modifier = "Mod4";
         terminal = "${pkgs.alacritty}/bin/alacritty";
-        menu = "${pkgs.bemenu}/bin/bemenu-run";
+        menu = "${pkgs.wmenu}/bin/wmenu-run";
         bars = [];
         fonts = {
           names = [ userFonts.nerd.name userFonts.symbols.name ];
@@ -33,7 +37,7 @@
         keybindings = {
           "Mod4+t" = "exec ${pkgs.alacritty}/bin/alacritty";
           "Mod4+b" = "exec ${pkgs.firefox}/bin/firefox";
-          "Mod4+d" = "exec ${pkgs.bemenu}/bin/bemenu-run";
+          "Mod4+d" = "exec ${pkgs.wmenu}/bin/wmenu-run";
           "Mod4+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -c ${colors.background}";
           "Mod4+Shift+q" = "kill";
 
@@ -90,7 +94,11 @@
           }
           {
             command = "${pkgs.waybar}/bin/waybar";
-            always = true;
+            always = false;
+          }
+          {
+            command = "${pkgs.sway}/bin/swaymsg workspace number 1";
+            always = false;
           }
         ];
 

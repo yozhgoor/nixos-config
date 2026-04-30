@@ -5,10 +5,8 @@
     ./hardware-configuration.nix
     ../default.nix
 
-    ../../modules/wireless.nix
-    ../../modules/dev/rust.nix
-    ../../modules/monitors.nix
     ../../modules/wayland
+    ../../modules/dev/rust.nix
   ];
 
   hardware.bluetooth = {
