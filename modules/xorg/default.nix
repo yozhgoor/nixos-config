@@ -1,6 +1,11 @@
-{ lib, pkgs, colors, term, username, userFonts, ... }:
+{ ... }:
 
 {
+  imports = [
+    ./i3.nix
+    ./i3status.nix
+  ];
+
   services.xserver = {
     enable = true;
     displayManager.startx.enable = true;
