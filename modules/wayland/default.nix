@@ -34,11 +34,19 @@
           names = [ userFonts.nerd.name userFonts.symbols.name ];
           size = 10.0;
         };
+        output = {
+          "eDP-1" = {
+            position = "0 0";
+          };
+          "DP-1" = {
+            position = "1920 0";
+          };
+        };
         keybindings = {
           "Mod4+t" = "exec ${pkgs.alacritty}/bin/alacritty";
           "Mod4+b" = "exec ${pkgs.firefox}/bin/firefox";
           "Mod4+d" = "exec ${pkgs.wmenu}/bin/wmenu-run";
-          "Mod4+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -c ${colors.background}";
+          "Mod4+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -f -c ${colors.background}";
           "Mod4+Shift+q" = "kill";
 
           "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+";
@@ -85,20 +93,22 @@
 
         startup = [
           {
-            command = "${pkgs.swaybg}/bin/swaybg -i ${../../img/background-image.png} -m fill";
-            always = true;
+            command = "${pkgs.sway}/bin/swaymsg workspace number 1";
           }
           {
-            command = "${pkgs.swayidle}/bin/swayidle -w timeout 300 '${pkgs.swaylock}/bin/swaylock -c ${colors.background}' timeout 600 '${pkgs.sway}/bin/swaymsg \"output * dpms off\"' resume '${pkgs.sway}/bin/swaymsg \"output * dpms on\"' before-sleep '${pkgs.swaylock}/bin/swaylock -c ${colors.background}'";
-            always = true;
+            command = "${pkgs.swaybg}/bin/swaybg -i ${../../img/background-image.png} -m fill";
           }
           {
             command = "${pkgs.waybar}/bin/waybar";
-            always = false;
           }
           {
-            command = "${pkgs.sway}/bin/swaymsg workspace number 1";
-            always = false;
+            command = ''
+              ${pkgs.swayidle}/bin/swayidle -w \
+                timeout 300 '${pkgs.swaylock}/bin/swaylock -f -c ${colors.background}' \
+                timeout 600 '${pkgs.sway}/bin/swaymsg "output * dpms off"' \
+                resume '${pkgs.sway}/bin/swaymsg "output * dpms on"' \
+                before-sleep '${pkgs.swaylock}/bin/swaylock -f -c ${colors.background}'
+            '';
           }
         ];
 
