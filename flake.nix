@@ -18,88 +18,32 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: let
-    mkFonts = pkgs: {
-      main = {
-        package = pkgs.liberation_ttf;
-        serif = "Liberation Serif";
-        sans = "Liberation Sans";
-      };
-      nerd = {
-        package = pkgs.nerd-fonts.hack;
-        name = "Hack Nerd Font";
-      };
-      symbols = {
-        package = pkgs.nerd-fonts.symbols-only;
-        name = "Symbols Nerd Font";
-      };
-    };
-    mkTerm = pkgs: {
-      package = pkgs.alacritty;
-      name = "alacritty";
-    };
-    username = "yozhgoor";
-    colors = {
-      background = "282828";
-      foreground = "ebdbb2";
-      black = "1d2021";
-      red = "cc241d";
-      green = "98971a";
-      yellow = "d79921";
-      blue = "458588";
-      magenta = "b16286";
-      cyan = "689d6a";
-      white = "a89984";
+  outputs = { nixpkgs, ... }@inputs: let
+    shared = import ./shared { inherit nixpkgs; };
 
-      brightBlack = "928374";
-      brightRed = "fb4934";
-      brightGreen = "b8bb26";
-      brightYellow = "fabd2f";
-      brightBlue = "83a598";
-      brightMagenta = "d3869b";
-      brightCyan = "8ec07c";
-      brightWhite = "ebdbb2";
+    mkHost = hostname: modules: nixpkgs.lib.nixosSystem {
+      system = shared.system;
+      specialArgs = {
+        inherit hostname;
+        username = shared.username;
+        colors = shared.colors;
+        userFonts = shared.userFonts;
+        term = shared.term;
+      };
+      modules = modules ++ [
+        ./configuration/${hostname}
 
-      orange = "d65d0e";
-      brightOrange = "fe8019";
+        inputs.home-manager.nixosModules.home-manager
+        inputs.nixvim.nixosModules.nixvim
+        inputs.nur.modules.nixos.default
+      ];
     };
   in {
     nixosConfigurations = {
-      "sanctuary" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          hostname = "sanctuary";
-          userFonts = mkFonts nixpkgs.legacyPackages.x86_64-linux;
-          term = mkTerm nixpkgs.legacyPackages.x86_64-linux;
-          inherit username;
-          inherit colors;
-        };
-        modules = [
-          ./configuration/sanctuary
-
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
-          inputs.home-manager.nixosModules.home-manager
-          inputs.nixvim.nixosModules.nixvim
-          inputs.nur.modules.nixos.default
-        ];
-      };
-      "atlantis" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          hostname = "atlantis";
-          userFonts = mkFonts nixpkgs.legacyPackages.x86_64-linux;
-          term = mkTerm nixpkgs.legacyPackages.x86_64-linux;
-          inherit username;
-          inherit colors;
-        };
-        modules = [
-          ./configuration/atlantis
-
-          inputs.home-manager.nixosModules.home-manager
-          inputs.nixvim.nixosModules.nixvim
-          inputs.nur.modules.nixos.default
-        ];
-      };
+      sanctuary = mkHost "sanctuary" [
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
+      ];
+      atlantis = mkHost "atlantis" [];
     };
   };
 }

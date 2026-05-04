@@ -96,7 +96,7 @@
             command = "${pkgs.sway}/bin/swaymsg workspace number 1";
           }
           {
-            command = "${pkgs.swaybg}/bin/swaybg -i ${../../img/background-image.png} -m fill";
+            command = "${pkgs.swaybg}/bin/swaybg -i ${../../images/background-image.png} -m fill";
           }
           {
             command = "${pkgs.waybar}/bin/waybar";

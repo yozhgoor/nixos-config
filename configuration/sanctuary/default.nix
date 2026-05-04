@@ -6,7 +6,7 @@
     ../default.nix
 
     ../../modules/wayland
-    ../../modules/dev/rust.nix
+    ../../modules/dev
   ];
 
   hardware.bluetooth = {

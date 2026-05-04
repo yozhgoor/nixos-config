@@ -6,7 +6,6 @@
     ../modules/audio.nix
     ../modules/bash.nix
     ../modules/firefox.nix
-    ../modules/dev/git.nix
     ../modules/home-manager.nix
     ../modules/spotify.nix
     ../modules/neovim
@@ -20,7 +19,7 @@
     };
   };
 
-  networking.hostName = "${hostname}";
+  networking.hostName = hostname;
 
   users.users.${username} = {
     isNormalUser = true;
