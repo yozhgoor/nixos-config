@@ -4,11 +4,6 @@
   services.openssh.enable = true;
 
   home-manager.users.${username} = {
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
     programs.git = {
       enable = true;
       settings = {

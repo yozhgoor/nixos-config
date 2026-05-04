@@ -45,5 +45,9 @@
       ];
       atlantis = mkHost "atlantis" [];
     };
+
+    devShells.${shared.system} = import ./dev-shells.nix {
+      pkgs = shared.pkgs;
+    };
   };
 }
