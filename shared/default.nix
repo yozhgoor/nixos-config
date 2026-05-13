@@ -15,8 +15,8 @@ let
       name = "Hack Nerd Font";
     };
     symbols = {
-      package = pkgs.nerd-fonts.symbols-only;
-      name = "Symbols Nerd Font";
+      package = pkgs.openmoji-color;
+      name = "OpenMoji Color";
     };
   };
 
