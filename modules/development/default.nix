@@ -1,14 +1,8 @@
-{ username, ... }:
+{ ... }:
 
 {
   imports = [
     ./git.nix
+    ./direnv.nix
   ];
-
-  home-manager.users.${username} = {
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-  };
 }

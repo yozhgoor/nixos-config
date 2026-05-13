@@ -7,6 +7,7 @@
 
     ../../modules/xorg
     ../../modules/steam.nix
+    ../../modules/development/git.nix
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
