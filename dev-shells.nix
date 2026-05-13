@@ -23,7 +23,7 @@
       python3
       uv
       ruff
-      pyright
+      ty
     ];
   };
 }
