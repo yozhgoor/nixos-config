@@ -51,7 +51,7 @@
         xterm*selectToClipboard: true
       '';
 
-      ".xinitrc".text = ''
+      ".xinitrc".text = lib.mkBefore ''
         [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
       '';
     };

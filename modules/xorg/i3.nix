@@ -1,10 +1,10 @@
-{ colors, pkgs, term, userFonts, username, ... }:
+{ colors, lib, pkgs, term, userFonts, username, ... }:
 
 {
   services.xserver.windowManager.i3.enable = true;
 
   home-manager.users.${username} = {
-    home.file.".xinitrc".text = ''
+    home.file.".xinitrc".text = lib.mkAfter ''
       exec i3
     '';
 

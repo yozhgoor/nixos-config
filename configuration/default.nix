@@ -1,14 +1,15 @@
-{ config, hostname, lib, pkgs, userFonts, username, ... }:
+{ config, hostname, lib, pkgs, term, userFonts, username, ... }:
 
 {
   imports = [
-    ../modules/alacritty.nix
     ../modules/audio.nix
     ../modules/bash.nix
     ../modules/firefox.nix
     ../modules/home-manager.nix
     ../modules/spotify.nix
     ../modules/neovim
+  ] ++ lib.optionals (term.name == "alacritty") [
+    ../modules/alacritty.nix
   ];
 
   boot ={

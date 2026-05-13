@@ -1,4 +1,4 @@
-{ colors, pkgs, userFonts, username, ... }:
+{ colors, pkgs, term, userFonts, username, ... }:
 
 {
   imports = [
@@ -27,7 +27,7 @@
 
       config = {
         modifier = "Mod4";
-        terminal = "${pkgs.alacritty}/bin/alacritty";
+        terminal = "${term.package}/bin/${term.name}";
         menu = "${pkgs.wmenu}/bin/wmenu-run";
         bars = [];
         fonts = {
@@ -43,7 +43,7 @@
           };
         };
         keybindings = {
-          "Mod4+t" = "exec ${pkgs.alacritty}/bin/alacritty";
+          "Mod4+t" = "exec ${term.package}/bin/${term.name}";
           "Mod4+b" = "exec ${pkgs.firefox}/bin/firefox";
           "Mod4+d" = "exec ${pkgs.wmenu}/bin/wmenu-run";
           "Mod4+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -f -c ${colors.background}";
