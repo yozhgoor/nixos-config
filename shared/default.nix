@@ -21,8 +21,8 @@ let
   };
 
   mkTerm = pkgs: {
-    package = pkgs.alacritty;
-    name = "alacritty";
+    package = pkgs.rio;
+    name = "rio";
   };
 in {
   inherit system pkgs;
@@ -34,7 +34,13 @@ in {
 
   colors = {
     background = "282828";
+    lightBackground = "32302f";
+    dimBackground = "1d2021";
+
     foreground = "ebdbb2";
+    lightForeground = "fbf1c7";
+    dimForeground = "a89984";
+
     black = "1d2021";
     red = "cc241d";
     green = "98971a";
@@ -43,15 +49,26 @@ in {
     magenta = "b16286";
     cyan = "689d6a";
     white = "a89984";
-    brightBlack = "928374";
-    brightRed = "fb4934";
-    brightGreen = "b8bb26";
-    brightYellow = "fabd2f";
-    brightBlue = "83a598";
-    brightMagenta = "d3869b";
-    brightCyan = "8ec07c";
-    brightWhite = "ebdbb2";
     orange = "d65d0e";
-    brightOrange = "fe8019";
+
+    lightBlack = "928374";
+    lightRed = "fb4934";
+    lightGreen = "b8bb26";
+    lightYellow = "fabd2f";
+    lightBlue = "83a598";
+    lightMagenta = "d3869b";
+    lightCyan = "8ec07c";
+    lightWhite = "ebdbb2";
+    lightOrange = "fe8019";
+
+    dimBlack = "1d2021";
+    dimRed = "9d0006";
+    dimGreen = "79740e";
+    dimYellow = "b57614";
+    dimBlue = "076678";
+    dimMagenta = "8f3f71";
+    dimCyan = "427b58";
+    dimWhite = "928374";
+    dimOrange = "af3a03";
   };
 }

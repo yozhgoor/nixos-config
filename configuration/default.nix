@@ -8,8 +8,8 @@
     ../modules/home-manager.nix
     ../modules/spotify.nix
     ../modules/neovim
-  ] ++ lib.optionals (term.name == "alacritty") [
-    ../modules/alacritty.nix
+  ] ++ lib.optionals (term.name != "xterm") [
+    ../modules/${term.name}.nix
   ];
 
   boot ={

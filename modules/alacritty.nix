@@ -29,14 +29,14 @@
             white = "#${colors.white}";
           };
           bright = {
-            black = "#${colors.brightBlack}";
-            red = "#${colors.brightRed}";
-            green = "#${colors.brightGreen}";
-            yellow = "#${colors.brightYellow}";
-            blue = "#${colors.brightBlue}";
-            magenta = "#${colors.brightMagenta}";
-            cyan = "#${colors.brightCyan}";
-            white = "#${colors.brightWhite}";
+            black = "#${colors.lightBlack}";
+            red = "#${colors.lightRed}";
+            green = "#${colors.lightGreen}";
+            yellow = "#${colors.lightYellow}";
+            blue = "#${colors.lightBlue}";
+            magenta = "#${colors.lightMagenta}";
+            cyan = "#${colors.lightCyan}";
+            white = "#${colors.lightWhite}";
           };
         };
         selection.save_to_clipboard = true;

@@ -18,14 +18,14 @@
             magenta = "#${colors.magenta}";
             cyan = "#${colors.cyan}";
             white = "#${colors.white}";
-            bright_black = "#${colors.brightBlack}";
-            bright_red = "#${colors.brightRed}";
-            bright_green = "#${colors.brightGreen}";
-            bright_yellow = "#${colors.brightYellow}";
-            bright_blue = "#${colors.brightBlue}";
-            bright_magenta = "#${colors.brightMagenta}";
-            bright_cyan = "#${colors.brightCyan}";
-            bright_white = "#${colors.brightWhite}";
+            bright_black = "#${colors.lightBlack}";
+            bright_red = "#${colors.lightRed}";
+            bright_green = "#${colors.lightGreen}";
+            bright_yellow = "#${colors.lightYellow}";
+            bright_blue = "#${colors.lightBlue}";
+            bright_magenta = "#${colors.lightMagenta}";
+            bright_cyan = "#${colors.lightCyan}";
+            bright_white = "#${colors.lightWhite}";
           };
           component_style = {
             block_title = { fg = "#${colors.foreground}"; };

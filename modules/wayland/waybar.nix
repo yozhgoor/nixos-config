@@ -126,7 +126,7 @@
 
         #workspaces button.urgent {
           color: #${colors.background};
-          background: #${colors.brightYellow};
+          background: #${colors.lightYellow};
         }
 
         #wireplumber, #backlight, #cpu, #load, #memory, #disk, #temperature, #network, #battery, #clock, #tray {
@@ -135,8 +135,8 @@
           background: #${colors.background};
         }
 
-        #battery.warning { color: #${colors.brightOrange}; }
-        #battery.critical { color: #${colors.brightRed}; }
+        #battery.warning { color: #${colors.lightOrange}; }
+        #battery.critical { color: #${colors.lightRed}; }
       '';
     };
   };

@@ -8,9 +8,9 @@
 
       general = {
         colors = true;
-        color_good = "#${colors.brightGreen}";
-        color_degraded = "#${colors.brightOrange}";
-        color_bad = "#${colors.brightRed}";
+        color_good = "#${colors.lightGreen}";
+        color_degraded = "#${colors.lightOrange}";
+        color_bad = "#${colors.lightRed}";
         interval = 5;
       };
 
