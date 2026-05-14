@@ -69,7 +69,66 @@
           yaml
         ];
       };
+
+      render-markdown = {
+        enable = true;
+        settings = {
+          render_modes = true;
+          heading = {
+            sign = false;
+            width = "block";
+            min_width = 100;
+            position = "inline";
+          };
+          code = {
+            style = "normal";
+            width = "block";
+            min_width = 100;
+          };
+          dash.width = 100;
+          latex.enabled = false;
+        };
+      };
+
+      image = {
+        enable = true;
+        settings = {
+          whatever = true;
+          backend = "kitty";
+          integrations = {
+            markdown = {
+              enabled = true;
+              clear_in_insert_mode = false;
+              download_remote_images = false;
+              filetypes = [ "markdown" ];
+            };
+          };
+        };
+      };
     };
+
+    extraPackages = with pkgs; [
+      # Related to image.nvim
+      imagemagick
+    ];
+
+    autoCmd = [
+      # Related to `render-markdown`
+      {
+        event = "FileType";
+        pattern = "markdown";
+        callback = {
+          __raw = ''
+            function()
+              vim.opt_local.conceallevel = 2
+              for i = 1,6 do
+                vim.api.nvim_set_hl(0, "RenderMarkdownH" .. i .. "Bg", { bg = "NONE" })
+              end
+            end
+          '';
+        };
+      }
+    ];
 
     keymaps = [
       # Toggle neo-tree
