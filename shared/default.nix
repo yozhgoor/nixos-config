@@ -21,8 +21,8 @@ let
   };
 
   mkTerm = pkgs: {
-    package = pkgs.rio;
-    name = "rio";
+    package = pkgs.kitty;
+    name = "kitty";
   };
 in {
   inherit system pkgs;

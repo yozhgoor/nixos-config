@@ -9,7 +9,7 @@
     ../modules/spotify.nix
     ../modules/neovim
   ] ++ lib.optionals (term.name != "xterm") [
-    ../modules/${term.name}.nix
+    ../modules/terminals/${term.name}.nix
   ];
 
   boot ={
