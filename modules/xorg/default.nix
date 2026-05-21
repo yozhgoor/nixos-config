@@ -34,14 +34,14 @@
         *color5: #${colors.magenta}
         *color6: #${colors.cyan}
         *color7: #${colors.white}
-        *color8: #${colors.brightBlack}
-        *color9: #${colors.brightRed}
-        *color10: #${colors.brightGreen}
-        *color11: #${colors.brightYellow}
-        *color12: #${colors.brightBlue}
-        *color13: #${colors.brightMagenta}
-        *color14: #${colors.brightCyan}
-        *color15: #${colors.brightWhite}
+        *color8: #${colors.lightBlack}
+        *color9: #${colors.lightRed}
+        *color10: #${colors.lightGreen}
+        *color11: #${colors.lightYellow}
+        *color12: #${colors.lightBlue}
+        *color13: #${colors.lightMagenta}
+        *color14: #${colors.lightCyan}
+        *color15: #${colors.lightWhite}
 
         xterm*faceName: ${userFonts.nerd.name}
         xterm*faceSize: 10

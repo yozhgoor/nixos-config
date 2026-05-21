@@ -9,6 +9,7 @@
         colors = {
           background = "#${colors.background}";
           foreground = "#${colors.foreground}";
+
           black = "#${colors.black}";
           red = "#${colors.red}";
           green = "#${colors.green}";
@@ -21,9 +22,9 @@
           cursor = "#${colors.foreground}";
           vi-cursor = "#${colors.lightOrange}";
 
-          tabs = "#${colors.dimForeground}";
+          tabs = "#${colors.foreground}";
           tabs-active = "#${colors.lightForeground}";
-          bar = "#${colors.dimBackground}";
+          bar = "#${colors.background}";
           split = "#${colors.lightBackground}";
 
           search-match-background = "#${colors.yellow}";
@@ -36,16 +37,6 @@
 
           selection-foreground = "#${colors.background}";
           selection-background = "#${colors.lightBlue}";
-
-          dim-foreground = "#${colors.dimForeground}";
-          dim-black = "#${colors.dimBlack}";
-          dim-red = "#${colors.dimRed}";
-          dim-green = "#${colors.dimGreen}";
-          dim-yellow = "#${colors.dimYellow}";
-          dim-blue = "#${colors.dimBlue}";
-          dim-magenta = "#${colors.dimMagenta}";
-          dim-cyan = "#${colors.dimCyan}";
-          dim-white = "#${colors.dimWhite}";
 
           light-foreground = "#${colors.lightForeground}";
           light-black = "#${colors.lightBlack}";

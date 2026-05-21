@@ -9,13 +9,16 @@
           colors = {
             foreground = "#${colors.foreground}",
             background = "#${colors.background}",
+
             cursor_bg = "#${colors.foreground}",
             cursor_fg = "#${colors.background}",
             cursor_border = "#${colors.foreground}",
+
             selection_fg = "#${colors.background}",
             selection_bg = "#${colors.lightBlue}",
-            scrollbar_thumb = "#${colors.dimForeground}",
+
             split = "#${colors.lightBackground}",
+
             ansi = {
               "#${colors.black}",
               "#${colors.red}",
@@ -37,6 +40,7 @@
               "#${colors.lightWhite}",
             },
           },
+
           font = wezterm.font("${userFonts.nerd.name}"),
           font_size = 10,
 
