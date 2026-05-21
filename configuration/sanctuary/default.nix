@@ -50,8 +50,6 @@
 
     home.packages = with pkgs; [
       android-tools
-      inkscape
-      flameshot
     ];
   };
 
