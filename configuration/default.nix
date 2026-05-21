@@ -6,7 +6,6 @@
     ../modules/bash.nix
     ../modules/firefox.nix
     ../modules/home-manager.nix
-    ../modules/spotify.nix
     ../modules/neovim
   ] ++ lib.optionals (term.name != "xterm") [
     ../modules/terminals/${term.name}.nix
@@ -30,7 +29,7 @@
   home-manager.users.${username} = {
     home.packages = with pkgs; [
       telegram-desktop
-      flameshot
+      spotify
     ];
 
     xdg.userDirs = let
