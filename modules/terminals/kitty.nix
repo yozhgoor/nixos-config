@@ -11,7 +11,7 @@
       settings = {
         scrollbar = "never";
 
-        url_color = "#${colors.lightOrange}";
+        url_color = "#${colors.lightBlue}";
         url_style = "straight";
         open_url_with = "${pkgs.firefox}/bin/firefox";
 

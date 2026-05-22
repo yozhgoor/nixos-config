@@ -114,7 +114,7 @@
 
         #workspaces button {
           padding: 0 0px;
-          color: #${colors.white};
+          color: #${colors.foreground};
           background: transparent;
           border: none;
         }
@@ -126,17 +126,16 @@
 
         #workspaces button.urgent {
           color: #${colors.background};
-          background: #${colors.lightYellow};
+          background: #${colors.orange};
         }
 
         #wireplumber, #backlight, #cpu, #load, #memory, #disk, #temperature, #network, #battery, #clock, #tray {
           margin: 0 0px;
           padding: 0 4px;
-          background: #${colors.background};
         }
 
-        #battery.warning { color: #${colors.lightOrange}; }
-        #battery.critical { color: #${colors.lightRed}; }
+        #battery.warning { color: #${colors.orange}; }
+        #battery.critical { color: #${colors.red}; }
       '';
     };
   };

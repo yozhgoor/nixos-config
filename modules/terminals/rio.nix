@@ -20,17 +20,11 @@
           white = "#${colors.white}";
 
           cursor = "#${colors.foreground}";
-          vi-cursor = "#${colors.lightOrange}";
 
           tabs = "#${colors.foreground}";
           tabs-active = "#${colors.lightForeground}";
           bar = "#${colors.background}";
           split = "#${colors.lightBackground}";
-
-          search-match-background = "#${colors.yellow}";
-          search-match-foreground = "#${colors.background}";
-          search-focused-match-background = "#${colors.lightOrange}";
-          search-focused-match-foreground = "#${colors.background}";
 
           hint-foreground = "#${colors.background}";
           hint-background = "#${colors.lightYellow}";

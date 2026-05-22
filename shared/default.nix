@@ -44,7 +44,6 @@ in {
     magenta = "b16286";
     cyan = "689d6a";
     white = "a89984";
-    orange = "d65d0e";
 
     lightBackground = "32302f";
     lightForeground = "fbf1c7";
@@ -57,6 +56,7 @@ in {
     lightMagenta = "d3869b";
     lightCyan = "8ec07c";
     lightWhite = "ebdbb2";
-    lightOrange = "fe8019";
+
+    orange = "d65d0e";
   };
 }
