@@ -81,7 +81,8 @@
             position = "inline";
           };
           code = {
-            style = "normal";
+            style = "block";
+            sign = false;
             width = "block";
             min_width = 100;
           };

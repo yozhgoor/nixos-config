@@ -38,8 +38,8 @@
       enable = true;
       createDirectories = true;
       download = "${base}/downloads";
+      documents = "${base}/documents";
       desktop = base;
-      documents = base;
       music = base;
       pictures = base;
       publicShare = base;
