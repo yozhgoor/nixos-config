@@ -136,23 +136,6 @@
               mods = "CTRL|SHIFT",
               action = wezterm.action.CloseCurrentPane { confirm = true },
             },
-
-            -- Tall layout
-            {
-              key = "L",
-              mods = "CTRL|SHIFT",
-              action = wezterm.action.Multiple({
-                wezterm.action.SplitPane({
-                  direction = "Right",
-                }),
-                wezterm.action.ActivatePaneDirection("Right"),
-                wezterm.action.SplitPane({
-                  direction = "Down",
-                  size = { Percent = 30 },
-                }),
-                wezterm.action.ActivatePaneDirection("Left"),
-              }),
-            },
           },
 
           -- Disable built-in key tables
