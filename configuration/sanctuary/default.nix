@@ -7,6 +7,7 @@
 
     ../../modules/wayland
     ../../modules/development
+    ../../modules/virtualisation.nix
   ];
 
   hardware.bluetooth = {
