@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../default.nix
 
-    ../../modules/xorg
     ../../modules/steam.nix
     ../../modules/development/git.nix
   ];

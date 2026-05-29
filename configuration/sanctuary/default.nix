@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../default.nix
 
-    ../../modules/wayland
     ../../modules/development
     ../../modules/virtualisation.nix
   ];
@@ -36,13 +35,7 @@
     };
   };
 
-  networking = {
-    networkmanager.enable = true;
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 22 8000 ];
-    };
-  };
+  networking.networkmanager.enable = true;
 
   home-manager.users.${username} = {
     imports = let

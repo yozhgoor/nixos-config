@@ -7,6 +7,7 @@
     ../modules/firefox.nix
     ../modules/home-manager.nix
     ../modules/neovim
+    ../modules/xorg
   ] ++ lib.optionals (term.name != "xterm") [
     ../modules/terminals/${term.name}.nix
   ];
