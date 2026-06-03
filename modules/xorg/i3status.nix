@@ -37,13 +37,13 @@
             position = if isAtlantis then 4 else 5;
             settings = {
               format = "  %used/%available";
-              format_degraded = "  < %available";
+              format_degraded = "  %used/%available";
               threshold_degraded = "4G";
             };
           };
           "disk /" = {
             position = if isAtlantis then 5 else 6;
-            settings.format = "  %avail";
+            settings.format = " %avail";
           };
           "time" = {
             position = if isAtlantis then 6 else 8;
