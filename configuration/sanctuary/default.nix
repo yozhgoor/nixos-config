@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../default.nix
 
-    ../../modules/development
     ../../modules/virtualisation.nix
   ];
 

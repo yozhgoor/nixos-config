@@ -14,8 +14,6 @@
     home.packages = with pkgs; [
       wmenu
       wl-clipboard
-      grim
-      slurp
       swaybg
       swayidle
       swaylock
@@ -25,7 +23,6 @@
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
-      xwayland = false;
 
       config = {
         modifier = "Mod4";
@@ -41,7 +38,7 @@
             position = "0 0";
           };
           "DP-1" = {
-            position = "1920 0";
+            position = "0 1920";
           };
         };
         keybindings = {

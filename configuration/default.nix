@@ -2,14 +2,16 @@
 
 {
   imports = [
-    ../modules/audio.nix
     ../modules/bash.nix
-    ../modules/firefox.nix
     ../modules/home-manager.nix
     ../modules/neovim
-    ../modules/xorg
-  ] ++ lib.optionals (term.name != "xterm") [
-    ../modules/terminals/${term.name}.nix
+    ../modules/audio.nix
+
+    ../modules/wayland
+    ../modules/${term.name}.nix
+    ../modules/firefox.nix
+
+    ../modules/development
   ];
 
   boot ={
