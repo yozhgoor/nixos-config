@@ -5,7 +5,17 @@
     ./waybar.nix
   ];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "sway";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+    config.common.default = "*";
+  };
 
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
@@ -23,6 +33,7 @@
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
+      xwayland = true;
 
       config = {
         modifier = "Mod4";
@@ -35,10 +46,10 @@
         };
         output = {
           "eDP-1" = {
-            position = "0 0";
+            position = "1920 0";
           };
           "DP-1" = {
-            position = "0 1920";
+            position = "0 0";
           };
         };
         keybindings = {

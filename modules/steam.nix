@@ -12,11 +12,11 @@
       text = ''
         #!/bin/sh
 
-        ${pkgs.xrandr}/bin/xrandr --output DP-2 --mode 1920x1080 --refresh 120.0
+        ${pkgs.sway}/bin/swaymsg output DP-2 mode 1920x1080@120Hz
 
         "$@"
 
-        ${pkgs.xrandr}/bin/xrandr --output DP-2 --mode 1920x1080 --refresh 60.0
+        ${pkgs.sway}/bin/swaymsg output DP-2 mode 1920x1080@60Hz
       '';
     };
 
