@@ -5,12 +5,6 @@
     ./waybar.nix
   ];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "sway";
-  };
-
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
@@ -21,6 +15,12 @@
   security.pam.services.swaylock = {};
 
   home-manager.users.${username} = {
+    home.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      XDG_SESSION_TYPE = "wayland";
+      XDG_CURRENT_DESKTOP = "sway";
+    };
+
     home.packages = with pkgs; [
       wmenu
       wl-clipboard

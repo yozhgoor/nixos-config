@@ -7,6 +7,10 @@
       mangohud
     ];
 
+    home.sessionVariables = {
+      PROTON_NO_RAW_INPUT = "1";
+    };
+
     home.file.".local/bin/120hz" = {
       executable = true;
       text = ''
