@@ -24,10 +24,15 @@
     home.packages = with pkgs; [
       wmenu
       wl-clipboard
+
       swaybg
       swayidle
       swaylock
+
       brightnessctl
+
+      grim
+      slurp
     ];
 
     wayland.windowManager.sway = {
@@ -127,6 +132,23 @@
           titlebar = false;
         };
       };
+    };
+
+    home.file.".local/bin/screenshot" = {
+      executable = true;
+      text = ''
+        #!/bin/sh
+
+        if [ "$1" = "--save" ]; then
+          mkdir -p "$HOME/screenshots"
+
+          ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - \
+            | tee "$HOME/screenshots/$(date -Iseconds).png" \
+            | ${pkgs.wl-clipboard}/bin/wl-copy
+        else
+          ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy
+        fi
+      '';
     };
 
     programs.bash.profileExtra = ''

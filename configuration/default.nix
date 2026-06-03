@@ -35,6 +35,10 @@
       spotify
     ];
 
+    home.sessionPath = [
+      "$HOME/.local/bin/"
+    ];
+
     xdg.userDirs = let
       base = "/home/${username}";
     in {
