@@ -11,12 +11,25 @@
       executable = true;
       text = ''
         #!/bin/sh
+        # Set display to 120Hz, run a command, then restore 60Hz.
+        # Usage: 120hz [output] command...
+        #   output   Optional display name (e.g. DP-2). Defaults to focused output.
 
-        ${pkgs.sway}/bin/swaymsg output DP-2 mode 1920x1080@120Hz
+        if echo "$1" | grep -qE '^(DP|HDMI|eDP|VGA|LVDS)-'; then
+            output="$1"
+            shift
+        else
+            output=$(${pkgs.sway}/bin/swaymsg -t get_outputs \
+                | grep -B1 '"focused": true' \
+                | head -1 \
+                | sed 's/.*"name": "\([^"]*\)".*/\1/')
+        fi
+
+        ${pkgs.sway}/bin/swaymsg output "$output" mode 1920x1080@120Hz
 
         "$@"
 
-        ${pkgs.sway}/bin/swaymsg output DP-2 mode 1920x1080@60Hz
+        ${pkgs.sway}/bin/swaymsg output "$output" mode 1920x1080@60Hz
       '';
     };
 
