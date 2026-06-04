@@ -19,5 +19,17 @@
     home.sessionVariables = {
       LIBVIRT_DEFAULT_URI = "qemu:///session";
     };
+
+    home.file.".local/bin/vm" = {
+      executable = true;
+      text = ''
+        #!/bin/sh
+        ${pkgs.libvirt}/bin/virsh start win11 2>/dev/null || true
+
+        ${pkgs.virt-viewer}/bin/virt-viewer --wait win11
+
+        ${pkgs.libvirt}/bin/virsh shutdown win11
+      '';
+    };
   };
 }
