@@ -140,10 +140,10 @@
         #!/bin/sh
 
         if [ "$1" = "--save" ]; then
-          mkdir -p "$HOME/screenshots"
+          mkdir -p "$HOME/pictures/screenshots"
 
           ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - \
-            | tee "$HOME/screenshots/$(date -Iseconds).png" \
+            | tee "$HOME/pictures/screenshots/$(date -Iseconds).png" \
             | ${pkgs.wl-clipboard}/bin/wl-copy
         else
           ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy

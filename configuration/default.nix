@@ -56,9 +56,9 @@
       createDirectories = true;
       download = "${base}/downloads";
       documents = "${base}/documents";
+      pictures = "${base}/pictures";
       desktop = base;
       music = base;
-      pictures = base;
       publicShare = base;
       templates = base;
       videos = base;
