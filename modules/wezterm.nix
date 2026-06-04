@@ -69,7 +69,7 @@
               action = wezterm.action.CopyTo("Clipboard"),
             },
             {
-            key = "V",
+              key = "V",
               mods = "CTRL|SHIFT",
               action = wezterm.action.PasteFrom("Clipboard"),
             },
