@@ -29,14 +29,24 @@
     extraGroups = [ "wheel" "video" ];
   };
 
+  time.timeZone = "Europe/Brussels";
+
+  fonts.packages = [
+    userFonts.main.package
+    userFonts.nerd.package
+    userFonts.symbols.package
+  ];
+
   home-manager.users.${username} = {
+    home.sessionPath = [
+      "$HOME/.local/bin/"
+    ];
+
     home.packages = with pkgs; [
       telegram-desktop
       spotify
-    ];
 
-    home.sessionPath = [
-      "$HOME/.local/bin/"
+      xdg-utils
     ];
 
     xdg.userDirs = let
@@ -54,14 +64,6 @@
       videos = base;
     };
   };
-
-  time.timeZone = "Europe/Brussels";
-
-  fonts.packages = [
-    userFonts.main.package
-    userFonts.nerd.package
-    userFonts.symbols.package
-  ];
 
   nixpkgs.config.allowUnfree = true;
 

@@ -73,14 +73,12 @@
               mods = "CTRL|SHIFT",
               action = wezterm.action.PasteFrom("Clipboard"),
             },
-
             -- Panes
             {
               key = "?",
               mods = "CTRL|SHIFT",
               action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
             },
-
             {
               key = "\"",
               mods = "CTRL|SHIFT",
@@ -203,7 +201,7 @@
               mods = "NONE",
               action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor("Clipboard"),
             },
-                        {
+            {
               event = { Up = { streak = 3, button = "Left" } },
               mods = "NONE",
               action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor("Clipboard"),
