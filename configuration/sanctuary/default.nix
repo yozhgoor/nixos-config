@@ -36,6 +36,25 @@
 
   networking.networkmanager.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      alsa-lib
+      alsa-plugins
+      pipewire
+      libx11
+      libxcursor
+      libxrandr
+      libxi
+      libxkbcommon
+      wayland
+      vulkan-loader
+      mesa
+      libGL
+      openssl
+    ];
+  };
+
   home-manager.users.${username} = {
     imports = let
       path = /etc/nixos/secrets.nix;
