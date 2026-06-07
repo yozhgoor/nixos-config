@@ -10,17 +10,17 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6b157b01-d555-4306-b34a-1de41ab4bc37";
+    { device = "/dev/disk/by-uuid/88a60f97-2c9a-43f3-9612-126c28f0c3e8";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/6b157b01-d555-4306-b34a-1de41ab4bc37";
+    { device = "/dev/disk/by-uuid/88a60f97-2c9a-43f3-9612-126c28f0c3e8";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
