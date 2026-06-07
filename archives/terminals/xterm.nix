@@ -1,4 +1,4 @@
-{ ... }:
+{ colors, lib, pkgs, userFonts, username, ... }:
 
 {
   home-manager.users.${username} = {
