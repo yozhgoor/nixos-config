@@ -23,6 +23,7 @@
   };
 
   networking.hostName = hostname;
+  networking.networkmanager.enable = true;
 
   users.users.${username} = {
     isNormalUser = true;

@@ -1,6 +1,11 @@
 { pkgs, username, ... }:
 
 {
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   home-manager.users.${username} = {
     home.packages = with pkgs; [
       steam

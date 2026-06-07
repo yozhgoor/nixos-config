@@ -4,8 +4,6 @@
   imports = [
     ./hardware-configuration.nix
     ../default.nix
-
-    ../../modules/virtualisation.nix
   ];
 
   hardware.bluetooth = {
@@ -33,8 +31,6 @@
       disableWhileTyping = true;
     };
   };
-
-  networking.networkmanager.enable = true;
 
   programs.nix-ld = {
     enable = true;

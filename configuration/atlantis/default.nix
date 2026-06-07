@@ -10,11 +10,6 @@
 
   boot.initrd.kernelModules = [ "amdgpu" ];
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   services.libinput.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine
