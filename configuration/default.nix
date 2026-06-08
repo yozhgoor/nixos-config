@@ -66,6 +66,25 @@
     };
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      alsa-lib
+      alsa-plugins
+      pipewire
+      libx11
+      libxcursor
+      libxrandr
+      libxi
+      libxkbcommon
+      wayland
+      vulkan-loader
+      mesa
+      libGL
+      openssl
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   nix = {

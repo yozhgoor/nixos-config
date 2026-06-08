@@ -90,7 +90,7 @@
             tooltip = false;
           };
           clock = {
-            format = "󰥔  {:%d-%m-%Y %H:%M}";
+            format = "󰥔 {:%d-%m-%Y %H:%M}";
             tooltip = false;
           };
           tray = {
