@@ -64,6 +64,13 @@
       templates = base;
       videos = base;
     };
+
+    services.keybase.enable = true;
+    services.kbfs.enable = true;
+
+    imports = let
+      path = /etc/nixos/secrets.nix;
+    in lib.optional (builtins.pathExists path) path;
   };
 
   programs.nix-ld = {

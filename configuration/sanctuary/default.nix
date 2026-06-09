@@ -33,13 +33,6 @@
   };
 
   home-manager.users.${username} = {
-    imports = let
-      path = /etc/nixos/secrets.nix;
-    in lib.optional (builtins.pathExists path) path;
-
-    services.keybase.enable = true;
-    services.kbfs.enable = true;
-
     home.packages = with pkgs; [
       android-tools
     ];
