@@ -189,15 +189,30 @@
                   bookmarks = [
                     {
                       name = "yozhgoor";
-                      url = "https://github.com/yozhgoor";
+                      bookmarks = [
+                        {
+                          name = "profile";
+                          url = "https://github.com/yozhgoor";
+                        }
+                      ];
                     }
                     {
                       name = "rustminded";
-                      url = "https://github.com/rustminded";
+                      bookmarks = [
+                        {
+                          name = "profile";
+                          url = "https://github.com/rustminded";
+                        }
+                      ];
                     }
                     {
                       name = "cecton";
-                      url = "https://github.com/cecton";
+                      bookmarks = [
+                        {
+                          name = "profile";
+                          url = "https://github.com/cecton";
+                        }
+                      ];
                     }
                   ];
                 }
@@ -228,6 +243,10 @@
                     {
                       name = "meme generator";
                       url = "https://imgflip.com/memegenerator";
+                    }
+                    {
+                      name = "MyNixOS";
+                      url = "https://mynixos.com";
                     }
                   ];
                 }
