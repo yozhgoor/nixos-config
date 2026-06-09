@@ -10,6 +10,7 @@
     ../modules/wayland
     ../modules/${term.name}.nix
     ../modules/firefox.nix
+    ../modules/pdf.nix
 
     ../modules/development
   ];
