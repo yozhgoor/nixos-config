@@ -189,30 +189,15 @@
                   bookmarks = [
                     {
                       name = "yozhgoor";
-                      bookmarks = [
-                        {
-                          name = "profile";
-                          url = "https://github.com/yozhgoor";
-                        }
-                      ];
+                      url = "https://github.com/yozhgoor";
                     }
                     {
                       name = "rustminded";
-                      bookmarks = [
-                        {
-                          name = "profile";
-                          url = "https://github.com/rustminded";
-                        }
-                      ];
+                      url = "https://github.com/rustminded";
                     }
                     {
                       name = "cecton";
-                      bookmarks = [
-                        {
-                          name = "profile";
-                          url = "https://github.com/cecton";
-                        }
-                      ];
+                      url = "https://github.com/cecton";
                     }
                   ];
                 }
