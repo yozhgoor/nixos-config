@@ -11,6 +11,7 @@
       cargo-rdme
       cargo-msrv
       cargo-audit
+      cargo-temp
     ];
 
     shellHook = ''
