@@ -1,9 +1,13 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 
 {
   services.openssh.enable = true;
 
   home-manager.users.${username} = {
+    home.packages = with pkgs; [
+      tig
+    ];
+
     programs.git = {
       enable = true;
       settings = {
@@ -36,5 +40,12 @@
       .envrc
       .direnv
     '';
+
+    programs.gh = {
+      enable = true;
+      settings = {
+        git_protocol = "ssh";
+      };
+    };
   };
 }
