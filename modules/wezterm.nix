@@ -62,6 +62,12 @@
           disable_default_mouse_bindings = true,
 
           keys = {
+            -- Multi-line input support for Claude Code
+            {
+              key = "Enter",
+              mods = "SHIFT",
+              action = wezterm.action.SendString("\n"),
+            },
             -- Clipboard
             {
               key = "C",
@@ -133,6 +139,11 @@
               key = "}",
               mods = "CTRL|SHIFT",
               action = wezterm.action.CloseCurrentPane { confirm = true },
+            },
+            {
+              key = "N",
+              mods = "CTRL|SHIFT",
+              action = wezterm.action.SpawnWindow,
             },
           },
 

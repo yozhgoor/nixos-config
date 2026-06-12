@@ -1,21 +1,18 @@
-{ config, hostname, lib, pkgs, term, userFonts, username, ... }:
+{ colors, config, hostname, lib, pkgs, term, userFonts, username, ... }:
 
 {
   imports = [
+    ../modules/audio.nix
     ../modules/bash.nix
+    ../modules/development
+    ../modules/firefox.nix
     ../modules/home-manager.nix
     ../modules/neovim
-    ../modules/audio.nix
-
-    ../modules/wayland
     ../modules/${term.name}.nix
-    ../modules/firefox.nix
-    ../modules/pdf.nix
-
-    ../modules/development
+    ../modules/wayland
   ];
 
-  boot ={
+  boot = {
     kernelPackages = pkgs.linuxPackages_zen;
     loader = {
       systemd-boot.enable = true;
@@ -70,8 +67,10 @@
     services.kbfs.enable = true;
 
     imports = let
-      path = /etc/nixos/secrets.nix;
-    in lib.optional (builtins.pathExists path) path;
+      path = /etc/nixos/local.nix;
+    in lib.optional (builtins.pathExists path) (import path {
+      inherit colors username;
+    });
   };
 
   programs.nix-ld = {

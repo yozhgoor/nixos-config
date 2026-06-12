@@ -18,14 +18,6 @@ The [`configuration`][configuration] directory contains configuration specific t
 
 The [`modules`][modules] directory is related to the programs or services optionally imported.
 
-### Dev shells
-
-The [`dev shells`][dev_shells] file is related to development shells available on the system. For
-example, you can enter a dev shell with:
-```
-nix develop <path_to_repo>#rust
-```
-
 ### Archives
 
 The [`archives`][archives] directory is related to older files not used in the current configuration.
@@ -81,5 +73,4 @@ Note that `auto-optimise-store` is enabled in [`configuration/default.nix`][defa
 [atlantis_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/atlantis
 [default_path]: https://github.com/yozhgoor/nixos-config/blob/main/configuration/default.nix
 [modules]: https://github.com/yozhgoor/nixos-config/blob/main/modules
-[dev-shells]: https://github.com/yozhgoor/nixos-config/blob/main/dev-shells.nix
 [archives]: https://github.com/yozhgoor/nixos-config/blob/main/archives
