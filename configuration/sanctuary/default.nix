@@ -25,13 +25,6 @@
     };
   };
 
-  services.libinput = {
-    enable = true;
-    touchpad = {
-      disableWhileTyping = true;
-    };
-  };
-
   home-manager.users.${username} = {
     home.packages = with pkgs; [
       android-tools

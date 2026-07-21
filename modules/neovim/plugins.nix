@@ -37,10 +37,7 @@
 
       treesitter = {
         enable = true;
-        settings = {
-          auto_install = true;
-          highlight.enable = true;
-        };
+        settings.highlight.enable = true;
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           bash
           c
@@ -90,28 +87,7 @@
           latex.enabled = false;
         };
       };
-
-      image = {
-        enable = true;
-        settings = {
-          whatever = true;
-          backend = "kitty";
-          integrations = {
-            markdown = {
-              enabled = true;
-              clear_in_insert_mode = false;
-              download_remote_images = false;
-              filetypes = [ "markdown" ];
-            };
-          };
-        };
-      };
     };
-
-    extraPackages = with pkgs; [
-      # Related to image.nvim
-      imagemagick
-    ];
 
     autoCmd = [
       # Related to `render-markdown`
@@ -137,10 +113,7 @@
         mode = "n";
         key = "<leader>m";
         action = ":Neotree toggle<CR>";
-        options = {
-          silent = true;
-          noremap = true;
-        };
+        options.silent = true;
       }
     ];
   };

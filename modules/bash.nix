@@ -12,7 +12,7 @@
       shellAliases = {
         ls = "ls --color=auto";
         cat = "${pkgs.bat}/bin/bat --decorations never --theme gruvbox-dark";
-        term = "${term.package}/bin/${term.name} & disown";
+        term = "${term.bin} & disown";
       };
     };
 

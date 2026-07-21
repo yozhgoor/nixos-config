@@ -1,4 +1,4 @@
-{ colors, config, hostname, lib, pkgs, term, userFonts, username, ... }:
+{ colors, config, homeDir, hostname, lib, pkgs, term, userFonts, username, ... }:
 
 {
   imports = [
@@ -48,19 +48,20 @@
       xdg-utils
     ];
 
-    xdg.userDirs = let
-      base = "/home/${username}";
-    in {
+    xdg.userDirs = {
       enable = true;
+
       createDirectories = true;
-      download = "${base}/downloads";
-      documents = "${base}/documents";
-      pictures = "${base}/pictures";
-      desktop = base;
-      music = base;
-      publicShare = base;
-      templates = base;
-      videos = base;
+      setSessionVariables = false;
+
+      download = "${homeDir}/downloads";
+      documents = "${homeDir}/documents";
+      pictures = "${homeDir}/pictures";
+      desktop = homeDir;
+      music = homeDir;
+      publicShare = homeDir;
+      templates = homeDir;
+      videos = homeDir;
     };
 
     services.keybase.enable = true;
@@ -106,5 +107,5 @@
     };
   };
 
-  system.autoUpgrade.enable = true;
+  zramSwap.enable = true;
 }

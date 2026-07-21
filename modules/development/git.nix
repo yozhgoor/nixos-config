@@ -1,8 +1,6 @@
 { pkgs, username, ... }:
 
 {
-  services.openssh.enable = true;
-
   home-manager.users.${username} = {
     home.packages = with pkgs; [
       tig
@@ -10,15 +8,20 @@
 
     programs.git = {
       enable = true;
+      ignores = [
+        "debug/"
+        "target/"
+        "**/*.rs.bk"
+
+        ".envrc"
+        ".direnv"
+      ];
       settings = {
         user = {
           name = "${username}";
           email = "${username}@outlook.com";
         };
-        core = {
-          editor = "nvim";
-          excludesFile = "~/.gitignore_global";
-        };
+        core.editor = "nvim";
         push.autoSetupRemote = true;
         pull = {
           ff = "only";
@@ -31,15 +34,6 @@
         };
       };
     };
-
-    home.file.".gitignore_global".text = ''
-      debug/
-      target/
-      **/*.rs.bk
-
-      .envrc
-      .direnv
-    '';
 
     programs.gh = {
       enable = true;

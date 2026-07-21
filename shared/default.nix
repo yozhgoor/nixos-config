@@ -4,7 +4,13 @@ let
   system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
 
-  mkFonts = pkgs: {
+  username = "yozhgoor";
+in {
+  inherit system pkgs username;
+
+  homeDir = "/home/${username}";
+
+  userFonts = {
     main = {
       package = pkgs.liberation_ttf;
       serif = "Liberation Serif";
@@ -20,17 +26,11 @@ let
     };
   };
 
-  mkTerm = pkgs: {
+  term = {
     package = pkgs.wezterm;
     name = "wezterm";
+    bin = "${pkgs.wezterm}/bin/wezterm";
   };
-in {
-  inherit system pkgs;
-
-  username = "yozhgoor";
-
-  userFonts = mkFonts pkgs;
-  term = mkTerm pkgs;
 
   colors = {
     black = "1d2021";

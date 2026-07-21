@@ -1,9 +1,11 @@
-{ pkgs, userFonts, username, ... }:
+{ homeDir, pkgs, userFonts, username, ... }:
 
 {
   home-manager.users.${username} = {
     programs.firefox = {
       enable = true;
+
+      configPath = ".mozilla/firefox";
 
       profiles.default = {
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -141,7 +143,7 @@
           "font.name.monospace.x-western" = "${userFonts.nerd.name}";
 
           # Set default download directory
-          "browser.download.dir" = "/home/${username}/downloads";
+          "browser.download.dir" = "${homeDir}/downloads";
           "browser.download.folderList" = 2;
           "browser.download.autoOpenPreference" = false;
           "browser.download.alwaysOpenPanel" = false;

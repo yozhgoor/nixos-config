@@ -11,7 +11,7 @@
 
     colorschemes.gruvbox.enable = true;
 
-    ViAlias = true;
+    viAlias = true;
     vimAlias = true;
 
     clipboard.register = "unnamedplus";
@@ -19,9 +19,6 @@
     globals.mapleader = ",";
 
     opts = {
-      # Don't redraw while executing macros, registers and other commands that have not been typed.
-      lazyredraw = true;
-
       # Use a swapfile for the local buffer.
       swapfile = false;
 
@@ -65,13 +62,11 @@
 
     keymaps =
       let
-        mkNoop = key: {
-          inherit key;
-          action = "<Nop>";
-          options = {
-            silent = true;
-            noremap = true;
-          };
+        mkKeymap = key: action: {
+          inherit key action;
+          options.silent = true;
+        };
+        mkNoop = key: mkKeymap key "<Nop>" // {
           mode = [ "n" "v" "i" "c" "t" ];
         };
       in
@@ -82,37 +77,24 @@
           (mkNoop "<2-MiddleMouse>")
           (mkNoop "<3-MiddleMouse>")
           (mkNoop "<4-MiddleMouse>")
-          {
-            key = "<leader><Left>";
-            action = ":bprev<CR>";
-            options = {
-              silent = true;
-              noremap = true;
-            };
-          }
-          {
-            key = "<leader><Right>";
-            action = ":bnext<CR>";
-            options = {
-              silent = true;
-              noremap = true;
-            };
-          }
-          {
-            key = "<leader><Down>";
-            action = ":bdel<CR>";
-            options = {
-              silent = true;
-              noremap = true;
-            };
-          }
+          (mkKeymap "<leader><Left>" ":bprev<CR>")
+          (mkKeymap "<leader><Right>" ":bnext<CR>")
+          (mkKeymap "<leader><Down>" ":bdel<CR>")
         ];
 
     autoCmd = [
       {
         event = "BufWritePre";
         pattern = "*";
-        command = "%s/\\s\\+$//e";
+        callback = {
+          __raw = ''
+            function()
+              local view = vim.fn.winsaveview()
+              vim.cmd([[keeppatterns %s/\s\+$//e]])
+              vim.fn.winrestview(view)
+            end
+          '';
+        };
       }
       {
         event = "FileType";

@@ -1,14 +1,10 @@
 { pkgs, username, ... }:
 
 {
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  programs.steam.enable = true;
 
   home-manager.users.${username} = {
     home.packages = with pkgs; [
-      steam
       mangohud
     ];
 
@@ -25,16 +21,14 @@
             shift
         else
             output=$(${pkgs.sway}/bin/swaymsg -t get_outputs \
-                | grep -B1 '"focused": true' \
-                | head -1 \
-                | sed 's/.*"name": "\([^"]*\)".*/\1/')
+                | ${pkgs.jq}/bin/jq -r '.[] | select(.focused).name')
         fi
+
+        trap '${pkgs.sway}/bin/swaymsg output "$output" mode 1920x1080@60Hz' EXIT
 
         ${pkgs.sway}/bin/swaymsg output "$output" mode 1920x1080@120Hz
 
         "$@"
-
-        ${pkgs.sway}/bin/swaymsg output "$output" mode 1920x1080@60Hz
       '';
     };
 

@@ -25,10 +25,7 @@
       system = shared.system;
       specialArgs = {
         inherit hostname;
-        username = shared.username;
-        colors = shared.colors;
-        userFonts = shared.userFonts;
-        term = shared.term;
+        inherit (shared) username homeDir colors userFonts term;
       };
       modules = modules ++ [
         ./configuration/${hostname}
@@ -36,6 +33,10 @@
         inputs.home-manager.nixosModules.home-manager
         inputs.nixvim.nixosModules.nixvim
         inputs.nur.modules.nixos.default
+
+        # nixvim's nixpkgs input follows ours; point its internal nixpkgs at
+        # the same source to avoid a warning on every evaluation.
+        { programs.nixvim.nixpkgs.source = nixpkgs.outPath; }
       ];
     };
   in {
