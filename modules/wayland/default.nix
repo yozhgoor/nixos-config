@@ -3,10 +3,6 @@
 let
   lock = "${pkgs.swaylock}/bin/swaylock -f -c ${colors.background}";
 in {
-  imports = [
-    ./waybar.nix
-  ];
-
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
@@ -17,6 +13,10 @@ in {
   security.pam.services.swaylock = {};
 
   home-manager.users.${username} = {
+    imports = [
+      ./waybar.nix
+    ];
+
     home.sessionVariables = {
       NIXOS_OZONE_WL = "1";
       XDG_SESSION_TYPE = "wayland";
@@ -118,6 +118,12 @@ in {
       };
     };
 
+    programs.bash.profileExtra = ''
+      if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$(tty)" = /dev/tty1 ]]; then
+        exec sway
+      fi
+    '';
+
     home.file.".local/bin/screenshot" = {
       executable = true;
       text = ''
@@ -134,11 +140,5 @@ in {
         fi
       '';
     };
-
-    programs.bash.profileExtra = ''
-      if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$(tty)" = /dev/tty1 ]]; then
-        exec sway
-      fi
-    '';
   };
 }

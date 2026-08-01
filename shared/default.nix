@@ -1,14 +1,9 @@
-{ nixpkgs }:
+{ system, nixpkgs, ... }:
 
 let
-  system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
-
-  username = "yozhgoor";
 in {
-  inherit system pkgs username;
-
-  homeDir = "/home/${username}";
+  inherit pkgs;
 
   userFonts = {
     main = {

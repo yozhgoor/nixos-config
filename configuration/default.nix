@@ -1,14 +1,9 @@
-{ colors, config, homeDir, hostname, lib, pkgs, term, userFonts, username, ... }:
+{ hostname, pkgs, userFonts, username, ... }:
 
 {
   imports = [
-    ../modules/audio.nix
-    ../modules/bash.nix
-    ../modules/development
-    ../modules/firefox.nix
-    ../modules/home-manager.nix
+    ../home-manager
     ../modules/neovim
-    ../modules/${term.name}.nix
     ../modules/wayland
   ];
 
@@ -36,42 +31,14 @@
     userFonts.symbols.package
   ];
 
-  home-manager.users.${username} = {
-    home.sessionPath = [
-      "$HOME/.local/bin/"
-    ];
-
-    home.packages = with pkgs; [
-      telegram-desktop
-      spotify
-
-      xdg-utils
-    ];
-
-    xdg.userDirs = {
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa = {
       enable = true;
-
-      createDirectories = true;
-      setSessionVariables = false;
-
-      download = "${homeDir}/downloads";
-      documents = "${homeDir}/documents";
-      pictures = "${homeDir}/pictures";
-      desktop = homeDir;
-      music = homeDir;
-      publicShare = homeDir;
-      templates = homeDir;
-      videos = homeDir;
+      support32Bit = true;
     };
-
-    services.keybase.enable = true;
-    services.kbfs.enable = true;
-
-    imports = let
-      path = /etc/nixos/local.nix;
-    in lib.optional (builtins.pathExists path) (import path {
-      inherit colors username;
-    });
+    pulse.enable = true;
   };
 
   programs.nix-ld = {
@@ -106,6 +73,4 @@
       experimental-features = [ "nix-command" "flakes" ];
     };
   };
-
-  zramSwap.enable = true;
 }
