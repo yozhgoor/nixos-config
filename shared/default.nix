@@ -1,9 +1,10 @@
 { system, nixpkgs, ... }:
 
-let
-  pkgs = nixpkgs.legacyPackages.${system};
-in {
-  inherit pkgs;
+rec {
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
 
   userFonts = {
     main = {

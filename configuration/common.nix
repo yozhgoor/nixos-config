@@ -1,11 +1,6 @@
 { hostname, pkgs, userFonts, username, ... }:
 
 {
-  imports = [
-    ../home-manager
-    ../modules/wayland
-  ];
-
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
     loader = {

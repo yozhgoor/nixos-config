@@ -1,9 +1,12 @@
-{ lib, pkgs, username, ... }:
+{ ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ../default.nix
+    ../common.nix
+
+    ../../home-manager/sanctuary.nix
+    ../../modules/wayland
   ];
 
   hardware.bluetooth = {
