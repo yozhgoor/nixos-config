@@ -3,7 +3,6 @@
 {
   imports = [
     ../home-manager
-    ../modules/neovim
     ../modules/wayland
   ];
 

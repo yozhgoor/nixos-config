@@ -12,6 +12,7 @@
       ./bash.nix
       ./dev.nix
       ./firefox.nix
+      ./neovim.nix
       ./${term.name}.nix
     ] ++ lib.optional (builtins.pathExists localPath) (import localPath {
       inherit pkgs;
