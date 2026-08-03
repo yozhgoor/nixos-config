@@ -5,6 +5,7 @@
     ../home-manager
     ../modules/neovim
     ../modules/wayland
+    ../modules/keybase.nix
   ];
 
   boot = {
