@@ -16,6 +16,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, ... }@inputs: {
@@ -59,6 +63,7 @@
         extraSpecialArgs = {
           inherit username;
           inherit (shared) colors term userFonts;
+          nixgl = inputs.nixgl;
         };
         modules = [
           ./home-manager/deck.nix
