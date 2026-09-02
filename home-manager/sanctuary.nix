@@ -5,5 +5,8 @@
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = { inherit colors term userFonts username; };
 
-  home-manager.users.${username}.imports = [ ./common.nix ];
+  home-manager.users.${username}.imports = [
+    ./common.nix
+    ./modules/android.nix
+  ];
 }
