@@ -69,9 +69,12 @@
       read _confirm
 
       try_cmd() {
-        dev="$1"
-        cmd="$2"
-        adb -s "$dev" shell "$cmd" >/dev/null 2>&1
+        dev="$1"; cmd="$2"
+        out=$(adb -s "$dev" shell "$cmd" 2>&1)
+        case "$out" in
+          *Success*|*"disabled-user"*|*"new state"*) return 0 ;;
+          *) return 1 ;;
+        esac
       }
 
       for dev in $devices; do
