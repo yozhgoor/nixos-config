@@ -74,5 +74,14 @@
         ];
       };
     };
+
+    devShells = let
+      system = "x86_64-linux";
+      shared = import ./shared { inherit system nixpkgs; };
+    in {
+      ${system} = import ./dev-shells.nix {
+        pkgs = shared.pkgs;
+      };
+    };
   };
 }
