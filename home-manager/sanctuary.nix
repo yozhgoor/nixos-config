@@ -8,5 +8,6 @@
   home-manager.users.${username}.imports = [
     ./common.nix
     ./modules/android.nix
+    ./modules/dev
   ];
 }

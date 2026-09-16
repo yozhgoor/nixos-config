@@ -5,7 +5,6 @@
     localPath = /home/${username}/.config/local.nix;
   in [
     ./modules/bash.nix
-    ./modules/dev.nix
     ./modules/firefox.nix
     ./modules/fonts.nix
     ./modules/neovim
