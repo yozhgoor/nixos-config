@@ -8,6 +8,8 @@
     rustup
 
     cargo-release
+
+    mdbook
   ];
 
   home.sessionVariables = {

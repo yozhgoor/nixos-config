@@ -51,6 +51,32 @@
           }
         ];
       };
+      atlantis = let
+        system = "x86_64-linux";
+        username = "yozhgoor";
+        hostname = "atlantis";
+        shared = import ./shared { inherit system nixpkgs; };
+      in nixpkgs.lib.nixosSystem {
+        system = system;
+        specialArgs = {
+          inherit hostname;
+          inherit username;
+          inherit (shared) colors term userFonts;
+        };
+        modules = [
+          ./configuration/atlantis
+
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nur.modules.nixos.default
+
+          {
+            home-manager.sharedModules = [
+              inputs.nixvim.homeModules.nixvim
+              { programs.nixvim.nixpkgs.source = nixpkgs.outPath; }
+            ];
+          }
+        ];
+      };
     };
 
     homeConfigurations = {
