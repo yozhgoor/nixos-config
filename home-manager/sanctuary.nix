@@ -9,5 +9,6 @@
     ./common.nix
     ./modules/android.nix
     ./modules/dev
+    ./modules/opencode.nix
   ];
 }

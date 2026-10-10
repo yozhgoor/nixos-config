@@ -8,5 +8,6 @@
   home-manager.users.${username}.imports = [
     ./common.nix
     ./modules/dev
+    ./modules/opencode.nix
   ];
 }

@@ -7,6 +7,7 @@
 
     ../../home-manager/atlantis.nix
     ../../modules/wayland
+    ../../modules/steam.nix
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
