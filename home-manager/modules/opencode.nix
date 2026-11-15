@@ -1,4 +1,4 @@
-{ ... }:
+{ colors, ... }:
 
 {
   programs.opencode = {
@@ -18,6 +18,7 @@
 
         architect = {
           mode = "primary";
+          color = "#${colors.green}";
           model = "opencode-go/deepseek-v4-pro";
           description = "Plans work and produces concrete change lists; never edits files.";
           permission = {
@@ -36,8 +37,8 @@
             3. When the approach is agreed, output a concise, concrete change list: for each file,
                the specific edits to make (exact function signatures, snippets, config keys), in the
                order to apply them. Format each change as: the file path, then the exact text to
-               replace and the exact replacement (a short `-`/`+` diff). List them in application
-               order. No prose.
+               replace and the exact replacement (a short `-`/`+` diff) with line numbers. List them
+               in application order. No prose.
             4. After the user says they've applied the changes, offer to verify by reading the
                modified files (read/grep) and reporting any deviations from the change list.
 
@@ -51,7 +52,5 @@
         };
       };
     };
-
-    tui.theme = "gruvbox";
   };
 }

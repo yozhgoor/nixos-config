@@ -1,4 +1,4 @@
-{ ... }:
+{ colors, ... }:
 
 {
   imports = [
@@ -9,7 +9,32 @@
     enable = true;
     defaultEditor = true;
 
-    colorschemes.gruvbox.enable = true;
+    colorschemes.base16 = {
+      enable = true;
+      colorscheme = {
+        base00 = "#${colors.background}";
+        base01 = "#${colors.lightBackground}";
+        base02 = "#${colors.black}";
+        base03 = "#${colors.lightBlack}";
+        base04 = "#${colors.lightForeground}";
+        base05 = "#${colors.foreground}";
+        base06 = "#${colors.white}";
+        base07 = "#${colors.lightWhite}";
+        base08 = "#${colors.red}";
+        base09 = "#${colors.orange}";
+        base0A = "#${colors.yellow}";
+        base0B = "#${colors.green}";
+        base0C = "#${colors.cyan}";
+        base0D = "#${colors.blue}";
+        base0E = "#${colors.magenta}";
+        base0F = "#${colors.lightOrange}";
+      };
+    };
+
+    highlightOverride = {
+      StatusLine = { fg = "#${colors.green}"; bg = "#${colors.lightBackground}"; bold = true; };
+      Visual = { bg = "#${colors.lightBlack}"; };
+    };
 
     viAlias = true;
     vimAlias = true;

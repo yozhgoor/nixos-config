@@ -23,6 +23,8 @@
         success_symbol = "[](bold #${colors.green}) ";
         error_symbol = "[](bold #${colors.red}) ";
       };
+      directory.style = "bold #${colors.green}";
+      git_branch.style = "bold #${colors.orange}";
       package.disabled = true;
     };
   };

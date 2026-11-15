@@ -1,7 +1,8 @@
 { colors, lib, pkgs, term, userFonts, username, ... }:
 
 let
-  lock = "${pkgs.swaylock}/bin/swaylock -f -c ${colors.background}";
+  lock = "${pkgs.swaylock}/bin/swaylock -f -c ${colors.background} --ring-color ${colors.green} --text-color ${colors.green} --key-hl-color ${colors.lightGreen} --bs-hl-color ${colors.red}";
+  menuCmd = "${pkgs.wmenu}/bin/wmenu-run -N ${colors.background} -n ${colors.foreground} -S ${colors.green} -s ${colors.background}";
 in {
   xdg.portal = {
     enable = true;
@@ -45,11 +46,11 @@ in {
       config = {
         modifier = "Mod4";
         terminal = term.bin;
-        menu = "${pkgs.wmenu}/bin/wmenu-run";
+        menu = menuCmd;
         bars = [];
         fonts = {
           names = [ userFonts.nerd.name userFonts.symbols.name ];
-          size = 10.0;
+          size = "${userFonts.size}";
         };
         output = {
           "eDP-1" = {
@@ -62,7 +63,7 @@ in {
         keybindings = {
           "Mod4+t" = "exec ${term.bin}";
           "Mod4+b" = "exec ${pkgs.firefox}/bin/firefox";
-          "Mod4+d" = "exec ${pkgs.wmenu}/bin/wmenu-run";
+          "Mod4+d" = "exec ${menuCmd}";
           "Mod4+Shift+l" = "exec ${lock}";
           "Mod4+Shift+q" = "kill";
 

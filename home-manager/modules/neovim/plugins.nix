@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ colors, pkgs, ... }:
 
 {
   programs.nixvim = {
@@ -13,7 +13,19 @@
       };
 
       web-devicons.enable = true;
-      bufferline.enable = true;
+
+      bufferline = {
+        enable = true;
+        settings.highlights = {
+          buffer_selected = {
+            fg = "#${colors.green}";
+            bold = true;
+          };
+          indicator_selected = {
+            fg = "#${colors.green}";
+          };
+        };
+      };
 
       neo-tree = {
         enable = true;
@@ -33,6 +45,10 @@
             }
           ];
         };
+        luaConfig.post = ''
+          vim.cmd("highlight NeoTreeDirectoryName guifg=#${colors.green}")
+          vim.cmd("highlight NeoTreeDirectoryName guifg=#${colors.green}")
+        '';
       };
 
       treesitter = {

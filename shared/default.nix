@@ -7,14 +7,15 @@ rec {
   };
 
   userFonts = {
+    size = "12";
     main = {
       package = pkgs.liberation_ttf;
       serif = "Liberation Serif";
       sans = "Liberation Sans";
     };
     nerd = {
-      package = pkgs.nerd-fonts.hack;
-      name = "Hack Nerd Font";
+      package = pkgs.nerd-fonts.terminess-ttf;
+      name = "Terminess Nerd Font";
     };
     symbols = {
       package = pkgs.openmoji-color;
@@ -28,32 +29,33 @@ rec {
     bin = "${pkgs.wezterm}/bin/wezterm";
   };
 
+
   colors = {
-    black = "1d2021";
-    red = "cc241d";
-    green = "98971a";
-    yellow = "d79921";
-    blue = "458588";
-    magenta = "b16286";
-    cyan = "689d6a";
-    white = "a89984";
+    black = "000000";
+    red = "ff0000";
+    green = "00ff00";
+    yellow = "ffb000";
+    blue = "0000ff";
+    magenta = "a000ff";
+    cyan = "00ffff";
+    white = "ffffff";
 
-    lightBlack = "928374";
-    lightRed = "fb4934";
-    lightGreen = "b8bb26";
-    lightYellow = "fabd2f";
-    lightBlue = "83a598";
-    lightMagenta = "d3869b";
-    lightCyan = "8ec07c";
-    lightWhite = "ebdbb2";
+    lightBlack = "808080";
+    lightRed = "ff6666";
+    lightGreen = "ffcc33";
+    lightYellow = "ffcc33";
+    lightBlue = "6666ff";
+    lightMagenta = "c266ff";
+    lightCyan = "66ffff";
+    lightWhite = "f2f2f2";
 
-    background = "282828";
-    lightBackground = "32302f";
+    background = "000000";
+    lightBackground = "1a1a1a";
 
-    foreground = "ebdbb2";
-    lightForeground = "fbf1c7";
+    foreground = "ffffff";
+    lightForeground = "f2f2f2";
 
-    orange = "d65d0e";
-    lightOrange = "fe8019";
+    orange = "ff8000";
+    lightOrange = "ffad66";
   };
 }

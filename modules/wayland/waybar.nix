@@ -32,9 +32,9 @@
 
         wireplumber = {
           format = "{icon} {volume}% |";
-          format-muted = " ";
-          format-source = "󰍬 {volume}%";
-          format-source-muted = "󰍭";
+          format-muted = "  |";
+          format-source = "󰍬 {volume}% |";
+          format-source-muted = "󰍭 |";
           format-icons = {
             default = [ " " " " " " ];
             headphone = "󰋋 ";
@@ -71,7 +71,7 @@
           tooltip = false;
         };
         network = {
-          format-wifi = "{icon}{essid} ({signalStrength}%) |";
+          format-wifi = "{icon} {essid} ({signalStrength}%) |";
           format-ethernet = "󰈀 {ipaddr}";
           format-disconnected = "󰤭  down";
           format-icons = [ "󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 " ];
@@ -90,7 +90,7 @@
           tooltip = false;
         };
         clock = {
-          format = "󰥔 {:%d-%m-%Y %H:%M}";
+          format = "󰥔  {:%d-%m-%Y %H:%M}";
           tooltip = false;
         };
         tray = {
@@ -103,13 +103,13 @@
     style = ''
       * {
         font-family: "${userFonts.nerd.name}", "${userFonts.symbols.name}";
-        font-size: 12px;
+        font-size: ${userFonts.size}px;
         min-height: 0;
       }
 
       window#waybar {
         background: #${colors.background};
-        color: #${colors.foreground};
+        color: #${colors.green};
       }
 
       #workspaces button {

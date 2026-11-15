@@ -55,6 +55,7 @@
         "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
         "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
         "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+        "browser.newtabpage.activity-stream.showWeather" = false;
 
         # Disable telemetry
         "app.shield.optoutstudies.enabled" = false;

@@ -9,12 +9,12 @@
           foreground = "#${colors.foreground}",
           background = "#${colors.background}",
 
-          cursor_bg = "#${colors.foreground}",
+          cursor_bg = "#${colors.green}",
           cursor_fg = "#${colors.background}",
-          cursor_border = "#${colors.foreground}",
+          cursor_border = "#${colors.green}",
 
           selection_fg = "#${colors.background}",
-          selection_bg = "#${colors.lightBlue}",
+          selection_bg = "#${colors.lightBlack}",
 
           split = "#${colors.lightBackground}",
 
@@ -41,7 +41,15 @@
         },
 
         font = wezterm.font("${userFonts.nerd.name}"),
-        font_size = 10,
+        font_size = ${userFonts.size},
+        font_rules = {
+          {
+            italic = true,
+            font = wezterm.font("${userFonts.nerd.name}"),
+          },
+        },
+
+        freetype_render_target = "Mono",
 
         enable_scroll_bar = false,
         alternate_buffer_wheel_scroll_speed = 1,
