@@ -1,4 +1,4 @@
-{ hostname, pkgs, userFonts, username, ... }:
+{ hostname, lib, pkgs, userFonts, username, ... }:
 
 {
   boot = {
@@ -9,8 +9,16 @@
     };
   };
 
+  zramSwap.enable = true;
+
+  fileSystems."/boot".options = lib.mkForce [ "umask=0077" ];
+
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
+
+  services.resolved.enable = true;
+
+  programs.fuse.enable = true;
 
   users.users.${username} = {
     isNormalUser = true;
@@ -33,25 +41,6 @@
       support32Bit = true;
     };
     pulse.enable = true;
-  };
-
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      alsa-lib
-      alsa-plugins
-      pipewire
-      libx11
-      libxcursor
-      libxrandr
-      libxi
-      libxkbcommon
-      wayland
-      vulkan-loader
-      mesa
-      libGL
-      openssl
-    ];
   };
 
   nixpkgs.config.allowUnfree = true;

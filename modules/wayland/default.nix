@@ -7,7 +7,11 @@ in {
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
+    config.sway = {
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+    };
   };
 
   security.polkit.enable = true;
