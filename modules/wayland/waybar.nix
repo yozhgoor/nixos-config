@@ -15,7 +15,6 @@
           "wireplumber"
           "backlight"
           "cpu"
-          "load"
           "memory"
           "disk"
           "temperature"
@@ -31,10 +30,10 @@
         };
 
         wireplumber = {
-          format = "{icon} {volume}% |";
-          format-muted = "  |";
+          format = "| {icon} {volume}% | {format_source}";
+          format-muted = "|   | {format_source}";
           format-source = "󰍬 {volume}% |";
-          format-source-muted = "󰍭 |";
+          format-source-muted = "󰍭  |";
           format-icons = {
             default = [ " " " " " " ];
             headphone = "󰋋 ";
@@ -52,12 +51,8 @@
           format = "  {usage}% |";
           tooltip = false;
         };
-        load = {
-          format = "  {load1}/{load5} |";
-          tooltip = false;
-        };
         memory = {
-          format = "  {}% |";
+          format = "  {percentage}% |";
           tooltip = false;
         };
         disk = {
@@ -72,8 +67,9 @@
         };
         network = {
           format-wifi = "{icon} {essid} ({signalStrength}%) |";
-          format-ethernet = "󰈀 {ipaddr}";
-          format-disconnected = "󰤭  down";
+          format-ethernet = "  {ipaddr} |";
+          format-linked = "  {ifname} |";
+          format-disconnected = "󰤭  down |";
           format-icons = [ "󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 " ];
           tooltip = false;
         };
@@ -90,7 +86,7 @@
           tooltip = false;
         };
         clock = {
-          format = "󰥔  {:%d-%m-%Y %H:%M}";
+          format = "󰥔  {:%d-%m-%Y %H:%M} |";
           tooltip = false;
         };
         tray = {

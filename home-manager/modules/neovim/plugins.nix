@@ -47,7 +47,7 @@
         };
         luaConfig.post = ''
           vim.cmd("highlight NeoTreeDirectoryName guifg=#${colors.green}")
-          vim.cmd("highlight NeoTreeDirectoryName guifg=#${colors.green}")
+          vim.cmd("highlight NeoTreeDirectoryIcon guifg=#${colors.green}")
         '';
       };
 
